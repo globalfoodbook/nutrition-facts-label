@@ -18,12 +18,10 @@ add_action('admin_menu', 'nutrition_facts_label_pages');
 // action function for above hook
 function nutrition_facts_label_pages() {
     // Add a new top-level menu:
-    add_menu_page(__('Nutrition Label','menu-nutrition-label'), __('Nutrition Label','menu-nutrition-label'), 'manage_options', 'nutrition-label-page', 'nutrition_facts_label' );
+    add_menu_page(__('Nutrition Label','menu-nutrition-label'), __('Nutrition Label','menu-nutrition-label'), 'manage_options', 'nutrition-label-settings', 'nutrition_facts_label_form_view' );
 }
 
-// nutrition_facts_label() displays the page content for the custom Nutrition Label menu
-function nutrition_facts_label() {
-    echo "<div class='wrap'>";
-    echo "<h2>" . __( 'Nutrition Facts Label', 'menu-nutrition-label' ) . "</h2>";
-    echo "</div>";
+// nutrition_facts_label_form_view() displays the page content for the custom Nutrition Label menu
+function nutrition_facts_label_form_view() {
+  require_once 'form.php';
 }?>

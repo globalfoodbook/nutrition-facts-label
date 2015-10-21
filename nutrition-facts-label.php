@@ -12,6 +12,25 @@ Version: 1.0
 Author URI: http://ikennaokpala.com/
 */
 
+// File Security Check
+if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME'])) {
+    die('You do not have sufficient permissions to access this page');
+}
+
+// Enqueue script and styles
+if ( !function_exists( 'gfb_nutrition_label_add_to_head' ) ):
+  function gfb_nutrition_label_add_to_head() {
+     wp_register_script( 'add-gfb-nutrition-label-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/nutritionLabel.js', '', null, array('jquery'));
+     wp_register_style( 'add-gfb-nutrition-label-sub-css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/nutritionLabel.css','','', 'screen' );
+     wp_enqueue_script( 'add-gfb-nutrition-label-sub-js' );
+     wp_enqueue_style( 'add-gfb-nutrition-label-sub-css' );
+  }
+endif;
+
+add_action( 'wp_enqueue_scripts', 'gfb_nutrition_label_add_to_head' );
+add_action('admin_head', 'gfb_nutrition_label_add_to_head');
+
+
 // Hook for adding admin menus
 add_action('admin_menu', 'nutrition_facts_label_pages');
 

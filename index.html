@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<link rel='stylesheet' type='text/css' media='screen' href='includes/assets/css/nutritionLabel.css'>
+  <style media="screen">
+  #nutrition-label-outer{
+    /*width:300px;
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;*/
+  }
+  #nutrition-label{
+    /*width:300px;*/
+  }
+  </style>
+</head>
+<body>
+
+<div id="nutrition-label-outer">
+  <div id="nutrition-label"> </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="includes/assets/javascript/nutritionLabel.js"></script>
+<script type="text/javascript">
+// $('#nutrition-label').nutritionLabel();
+$('#nutrition-label').nutritionLabel({
+	'showServingUnitQuantity' : false,
+	'itemName' : 'Bleu Cheese Dressing',
+	'ingredientList' : 'Bleu Cheese Dressing',
+
+	'showPolyFat' : false,
+	'showMonoFat' : false,
+
+	'valueCalories' : 450,
+	'valueFatCalories' : 430,
+	'valueTotalFat' : 48,
+	'valueSatFat' : 6,
+	'valueTransFat' : 0,
+	'valueCholesterol' : 30,
+	'valueSodium' : 780,
+	'valueTotalCarb' : 3,
+	'valueFibers' : 0,
+	'valueSugars' : 3,
+	'valueProteins' : 3,
+	'valueVitaminA' : 0,
+	'valueVitaminC' : 0,
+	'valueCalcium' : 0,
+	'valueIron' : 0
+});
+</script>
+</body>
+</html>

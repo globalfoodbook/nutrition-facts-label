@@ -21,13 +21,15 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__FILE__) == basename($_SERV
 if ( !function_exists( 'gfb_nutrition_label_add_to_head' ) ):
   function gfb_nutrition_label_add_to_head() {
      wp_register_script( 'add-gfb-nutrition-label-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/nutritionLabel.js', '', null, array('jquery'));
+     wp_register_script( 'add-gfb-domtoimage-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/domtoimage.js', '', null, '');
      wp_register_style( 'add-gfb-nutrition-label-sub-css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/nutritionLabel.css','','', 'screen' );
      wp_enqueue_script( 'add-gfb-nutrition-label-sub-js' );
+     wp_enqueue_script( 'add-gfb-domtoimage-sub-js' );
      wp_enqueue_style( 'add-gfb-nutrition-label-sub-css' );
   }
 endif;
 
-add_action( 'wp_enqueue_scripts', 'gfb_nutrition_label_add_to_head' );
+// add_action( 'wp_enqueue_scripts', 'gfb_nutrition_label_add_to_head' );
 add_action('admin_head', 'gfb_nutrition_label_add_to_head');
 
 

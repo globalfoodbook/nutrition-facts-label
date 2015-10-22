@@ -26,11 +26,14 @@
       </form>
     </div>
     <div class='section2'>
+       <h4>Nutrition Facts Label:</h4>
       <div id="nutrition-label-outer">
         <div id="nutrition-label"> </div>
       </div>
+       <p><input type='button' onclick='generateImage()' value='Download' /></p>
     </div>
     <div class='section3'>
+       <h4>Embedded Code:</h4>
       <textarea id="gfb-nut-textarea" rows='12' cols='33' readonly>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script type="text/javascript" src="http://raw.githubusercontent.com/globalfoodbook/nutrition-facts-label/develop/includes/assets/javascript/nutritionLabel-min.js"></script>
@@ -46,5 +49,18 @@ jQuery( document ).ready(function() {
   jQuery('#gfb-nut-textarea').val(code);
   // jQuery('#nutrition-label').clone().appendTo('#gfb-nut-textarea');
 });
+
+function generateImage(){
+  domtoimage.toPng(document.getElementById('nutrition-label'))
+    .then(function (dataUrl) {
+      console.log('Image url:', dataUrl)
+      var img = new Image();
+      img.src = dataUrl;
+      document.appendChild(img);
+    })
+    .catch(function (error) {
+      console.error('oops, something went wrong!', error);
+  });
+}
 
 </script>

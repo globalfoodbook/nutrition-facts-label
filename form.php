@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function process_request($ingredients){
-  $api = "http://nutsv.globalfoodbook.net/v1/nutrition/facts?ingredients=";
+  $api = "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=";
   $url = $api.urlencode(implode(",", explode("\n", trim($ingredients))));
   $opts = array(
   'http'=>array(

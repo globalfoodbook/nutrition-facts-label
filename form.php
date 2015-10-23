@@ -2,12 +2,13 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["ingredients"])) {
     $ingredients = $_POST["ingredients"];
-    process_request($ingredients);
+    $nutrition = process_request($ingredients);
   }
 }
 
 function process_request($ingredients){
   $api = "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=";
+  // $api = "http://localhost:8090/v1/nutrition?ingredients=";
   $url = $api.urlencode(implode(",", explode("\n", trim($ingredients))));
   $opts = array(
   'http'=>array(
@@ -17,7 +18,7 @@ function process_request($ingredients){
 
   $context = stream_context_create($opts);
   $json = file_get_contents($url, 0, $context);
-  $response = json_decode($json);
+  $response = json_encode(json_decode($json), JSON_PRETTY_PRINT);
   return $response;
 }
 ?>
@@ -67,7 +68,22 @@ function process_request($ingredients){
 </div>
 <script type="text/javascript">
 jQuery( document ).ready(function() {
-  jQuery('#nutrition-label').nutritionLabel();
+  settings = {
+  	'showServingUnitQuantity' : false,
+  	// 'itemName' : 'Bleu Cheese Dressing',
+  	// 'ingredientList' : 'Bleu Cheese Dressing',
+  	'showPolyFat' : false,
+  	'showMonoFat' : false
+  }
+  <?php if(!empty($nutrition)) {?>
+  var response = <?php echo $nutrition; ?>;
+
+  jQuery('#nutrition-label').nutritionLabel(
+    jQuery.extend( settings, response );
+  );
+  <?php } else { ?>
+    jQuery('#nutrition-label').nutritionLabel()
+  <?php } ?>
   code = jQuery.trim(jQuery('#gfb-nut-textarea').text()+jQuery('#nutrition-label').clone().html());
   jQuery('#gfb-nut-textarea').val(code);
   // jQuery('#nutrition-label').clone().appendTo('#gfb-nut-textarea');

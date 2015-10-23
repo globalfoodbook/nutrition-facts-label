@@ -3,23 +3,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["ingredients"])) {
     $ingredients = $_POST["ingredients"];
     $nutrition = process_request($ingredients);
+  //   $nutrition = json_encode(json_decode('{
+  //   "PolyFat": 6.883,
+  //   "MonoFat": 10.281,
+  //   "valueCalories": 1804,
+  //   "valueFatCalories": 185.82,
+  //   "valueTotalFat": 26.476,
+  //   "valueSatFat": 11.5,
+  //   "valueTransFat": 0.106,
+  //   "valueCholesterol": 335,
+  //   "valueSodium": 11399,
+  //   "valueTotalCarb": 301.90000000000003,
+  //   "valueFibers": 41.7,
+  //   "valueSugars": 13.620000000000001,
+  //   "valueProteins": 110,
+  //   "valueVitaminA": 11760,
+  //   "valueVitaminC": 44.7,
+  //   "valueCalcium": 1465,
+  //   "valueIron": 53.279999999999994,
+  //   "valuePotassium": 3770
+  // }'));
   }
 }
 
 function process_request($ingredients){
   $api = "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=";
-  // $api = "http://localhost:8090/v1/nutrition?ingredients=";
   $url = $api.urlencode(implode(",", explode("\n", trim($ingredients))));
-  $opts = array(
-  'http'=>array(
-    'method'=>"GET"
-    )
-  );
 
-  $context = stream_context_create($opts);
+  $context = stream_context_create(array('http'=>array('method'=>"GET")));
   $json = file_get_contents($url, 0, $context);
-  $response = json_encode(json_decode($json), JSON_PRETTY_PRINT);
+  $response = json_encode(json_decode($json, true), JSON_PRETTY_PRINT);
   return $response;
+  // return $json;
 }
 ?>
 <style media="screen">
@@ -68,19 +83,16 @@ function process_request($ingredients){
 </div>
 <script type="text/javascript">
 jQuery( document ).ready(function() {
-  settings = {
-  	'showServingUnitQuantity' : false,
-  	// 'itemName' : 'Bleu Cheese Dressing',
-  	// 'ingredientList' : 'Bleu Cheese Dressing',
-  	'showPolyFat' : false,
-  	'showMonoFat' : false
-  }
+  var settings = {
+  	"showServingUnitQuantity":false,
+  	"showPolyFat":false,
+  	"showMonoFat":false
+  };
   <?php if(!empty($nutrition)) {?>
-  var response = <?php echo $nutrition; ?>;
+    var response = <?php echo $nutrition; ?>
+    // console.log("Merged: ",jQuery.extend( settings, response ))
+    jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response ));
 
-  jQuery('#nutrition-label').nutritionLabel(
-    jQuery.extend( settings, response );
-  );
   <?php } else { ?>
     jQuery('#nutrition-label').nutritionLabel()
   <?php } ?>

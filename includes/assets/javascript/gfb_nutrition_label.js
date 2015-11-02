@@ -29,6 +29,7 @@ GFBNutritionLabel.prototype.checkForm = function() {
   var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value;
 
   if (contentOfTextArea.length <= 1) {
+    alert("Please add your ingredients before submitting this form.")
     return false;
   } else {
     document.forms['gfb-nutrition-label-form'].submit();

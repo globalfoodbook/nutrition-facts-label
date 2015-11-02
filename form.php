@@ -65,7 +65,7 @@ function options($ingredients){
       <form method='post' action='<?php echo admin_url( 'admin.php' ); ?>?page=gfb-nutrition-label-settings'>
          <h4>Ingredients:</h4>
          <p><textarea name='ingredients' rows='12' cols='33'><?php echo $ingredients; ?></textarea></p>
-         <p><input type='submit' name='Submit' value='Generate Label' style="display: block; width: 130px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;"/></p>
+         <p><input type='submit' name='Submit' value='Generate Label' style="display: block; width: 140px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;"/></p>
       </form>
     </div>
     <div class='section2'>

@@ -7,8 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function process_request($ingredients){
-  $api = "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=";
-  $url = $api.urlencode(options($ingredients));
+  $url = NUT_API.urlencode(options($ingredients));
 
   $context = stream_context_create(array('http'=>array('method'=>"GET")));
   $json = file_get_contents($url, 0, $context);

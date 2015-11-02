@@ -11,9 +11,7 @@ function process_request($ingredients){
 
   $context = stream_context_create(array('http'=>array('method'=>"GET")));
   $json = file_get_contents($url, 0, $context);
-  $response = json_encode(json_decode($json, true), JSON_PRETTY_PRINT);
-  return $response;
-  // return $json;
+  return json_encode(json_decode($json, true), JSON_PRETTY_PRINT);
 }
 
 function options($ingredients){

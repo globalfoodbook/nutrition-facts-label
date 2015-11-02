@@ -25,7 +25,7 @@ GFBNutritionLabel.prototype.generateImage = function(){
   });
 }
 
-GFBNutritionLabel.prototype.checkForm = function() {
+GFBNutritionLabel.prototype.submitForm = function() {
   var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value;
 
   if (contentOfTextArea.length <= 1) {

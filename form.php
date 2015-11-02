@@ -108,15 +108,13 @@ jQuery( document ).ready(function() {
 });
 
 function generateImage(){
-  domtoimage.toPng(document.getElementById('nutrition-label'))
-    .then(function (dataUrl) {
-      console.log('Image url:', dataUrl)
-      var img = new Image();
-      img.src = dataUrl;
-      document.appendChild(img);
-    })
-    .catch(function (error) {
-      console.error('oops, something went wrong!', error);
+  var node = document.getElementById('nutrition-label');
+  console.log("Promise: ", Promise);
+  console.log("Testing: ", node);
+  html2canvas(node, {
+    onrendered: function(canvas) {
+      return Canvas2Image.saveAsPNG(canvas);
+    }
   });
 }
 

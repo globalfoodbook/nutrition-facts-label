@@ -109,8 +109,6 @@ jQuery( document ).ready(function() {
 
 function generateImage(){
   var node = document.getElementById('nutrition-label');
-  console.log("Promise: ", Promise);
-  console.log("Testing: ", node);
   html2canvas(node, {
     onrendered: function(canvas) {
       return Canvas2Image.saveAsPNG(canvas);

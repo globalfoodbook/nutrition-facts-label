@@ -62,10 +62,10 @@ function options($ingredients){
   <h1><?php echo __( 'Nutrition Facts Label by <a href="http://globalfoodbook.com" target="_blank">Global Food Book</a>', 'menu-gfb-nutrition-label' ) ?> </h1>
   <div class='gfb-nutrition-label-section'>
     <div class='section1'>
-      <form method='post' action='<?php echo admin_url( 'admin.php' ); ?>?page=gfb-nutrition-label-settings'>
+      <form name="gfb-nutrition-label-form" method='post' action='<?php echo admin_url( 'admin.php' ); ?>?page=gfb-nutrition-label-settings'>
          <h4>Ingredients:</h4>
-         <p><textarea name='ingredients' rows='12' cols='33'><?php echo $ingredients; ?></textarea></p>
-         <p><input type='submit' name='Submit' value='Generate Label' style="display: block; width: 140px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;"/></p>
+         <p><textarea id="gfb-nutrition-label-textarea" name='ingredients' rows='12' cols='33'><?php echo $ingredients; ?></textarea></p>
+         <p><input type='button' name='Submit' value='Generate Label' style="display: block; width: 140px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;" onclick="gfbnutritionlabel.checkForm()"/></p>
       </form>
     </div>
     <div class='section2'>
@@ -91,6 +91,7 @@ jQuery( document ).ready(function() {
     	"showServingUnitQuantity":true,
     	"showPolyFat":true,
     	"showMonoFat":true,
+      // "showDisclaimer" : true,
       "itemName": "",
       "ingredientList":<?php echo json_encode(options($ingredients)); ?>
     };

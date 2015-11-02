@@ -10,9 +10,10 @@ GFBNutritionLabel.prototype.generateImage = function(){
     letterRendering: true,
     onrendered: function(canvas) {
       var context = canvas.getContext('2d');
-      context.webkitImageSmoothingEnabled = false;
+      // context.webkitImageSmoothingEnabled = false;
       context.mozImageSmoothingEnabled = false;
       context.imageSmoothingEnabled = false;
+      context.oImageSmoothingEnabled = false;
 			var image = canvas.toDataURL("image/jpeg");
 			// console.log("Image: ", image);
 			// window.location.href=image;

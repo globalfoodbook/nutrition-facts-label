@@ -73,7 +73,7 @@ function options($ingredients){
       <div id="nutrition-label-outer">
         <div id="nutrition-label"> </div>
       </div>
-       <p><input type='button' onclick='generateImage()' value='Download' /></p>
+       <p><a id="gfb-nutrition-label-button" onclick='gfbnutritionlabel.generateImage()' style="display: block; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
     </div>
     <div class='section3'>
        <h4>Embedded Code:</h4>
@@ -106,14 +106,4 @@ jQuery( document ).ready(function() {
   jQuery('#gfb-nut-textarea').val(code);
   // jQuery('#nutrition-label').clone().appendTo('#gfb-nut-textarea');
 });
-
-function generateImage(){
-  var node = document.getElementById('nutrition-label');
-  html2canvas(node, {
-    onrendered: function(canvas) {
-      return Canvas2Image.saveAsPNG(canvas);
-    }
-  });
-}
-
 </script>

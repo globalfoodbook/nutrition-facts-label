@@ -65,7 +65,7 @@ function options($ingredients){
       <form method='post' action='<?php echo admin_url( 'admin.php' ); ?>?page=gfb-nutrition-label-settings'>
          <h4>Ingredients:</h4>
          <p><textarea name='ingredients' rows='12' cols='33'><?php echo $ingredients; ?></textarea></p>
-         <p><input type='submit' name='Submit' value='Generate Label' /></p>
+         <p><input type='submit' name='Submit' value='Generate Label' style="display: block; width: 130px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;"/></p>
       </form>
     </div>
     <div class='section2'>
@@ -73,7 +73,7 @@ function options($ingredients){
       <div id="nutrition-label-outer">
         <div id="nutrition-label"> </div>
       </div>
-       <p><a id="gfb-nutrition-label-button" onclick='gfbnutritionlabel.generateImage()' style="display: block; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
+       <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display: block; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
     </div>
     <div class='section3'>
        <h4>Embedded Code:</h4>

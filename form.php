@@ -52,6 +52,7 @@ function options($ingredients){
       </div>
        <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display: block; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
     </div>
+    <?php if (false) { ?>
     <div class='section3'>
        <h4>Embedded Code:</h4>
       <textarea id="gfb-nut-textarea" rows='12' cols='33' readonly>
@@ -60,6 +61,7 @@ function options($ingredients){
       <link rel="stylesheet" href="http://raw.githubusercontent.com/globalfoodbook/nutrition-facts-label/develop/includes/assets/css/nutritionLabel-min.css" type="text/css" media="all">
       </textarea>
     </div>
+    <?php }?>
   </div>
 </div>
 <script type="text/javascript">

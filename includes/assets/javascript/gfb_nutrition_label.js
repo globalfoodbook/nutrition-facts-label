@@ -31,6 +31,9 @@ GFBNutritionLabel.prototype.submitForm = function() {
   if (contentOfTextArea.length <= 1) {
     alert("Please add your ingredients before submitting this form.")
     return false;
+  } else if (contentOfTextArea.indexOf('!') > -1) {
+    alert("Please remove exclammation mark (!) from your ingredients listing.")
+    return false;
   } else {
     document.forms['gfb-nutrition-label-form'].submit();
   }

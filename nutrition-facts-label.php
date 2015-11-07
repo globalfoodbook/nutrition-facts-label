@@ -32,9 +32,8 @@ if ( !function_exists( 'gfb_nutrition_label_add_to_head' ) ):
   }
 endif;
 
-// add_action( 'wp_enqueue_scripts', 'gfb_nutrition_label_add_to_head' );
 add_action('admin_head', 'gfb_nutrition_label_add_to_head');
-
+add_action( 'wp_enqueue_scripts', 'gfb_nutrition_label_add_to_head' );
 
 // Hook for adding admin menus
 add_action('admin_menu', 'nutrition_facts_label_pages');
@@ -57,4 +56,5 @@ function nutrition_facts_label_generator_sc(){
 
 add_shortcode('nutrition_facts_label_generator', 'nutrition_facts_label_generator_sc');
 
+require_once 'meta_box.php';
 ?>

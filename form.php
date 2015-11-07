@@ -47,9 +47,7 @@ function options($ingredients){
     </div>
     <div class='section2'>
        <h4>Nutrition Facts Label:</h4>
-      <div id="nutrition-label-outer">
-        <div id="nutrition-label"> </div>
-      </div>
+       <?php require_once 'nutrition_label.php'; ?>
        <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display: block; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
     </div>
     <?php if (false) { ?>
@@ -64,26 +62,5 @@ function options($ingredients){
     <?php }?>
   </div>
 </div>
-<script type="text/javascript">
-jQuery( document ).ready(function() {
-  var settings = {
-    	"showServingUnitQuantity":true,
-    	"showPolyFat":true,
-    	"showMonoFat":true,
-      // "showDisclaimer" : true,
-      "itemName": "",
-      "ingredientList":<?php echo json_encode(options($ingredients)); ?>
-    };
-  <?php if(!empty($nutrition)) {?>
-    var response = <?php echo $nutrition; ?>
-    // console.log("Merged: ",jQuery.extend( settings, response ))
-    jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response ));
 
-  <?php } else { ?>
-    jQuery('#nutrition-label').nutritionLabel()
-  <?php } ?>
-  code = jQuery.trim(jQuery('#gfb-nut-textarea').text()+jQuery('#nutrition-label').clone().html());
-  jQuery('#gfb-nut-textarea').val(code);
-  // jQuery('#nutrition-label').clone().appendTo('#gfb-nut-textarea');
-});
-</script>
+<?php require_once 'nutrition_ui.php'; ?>

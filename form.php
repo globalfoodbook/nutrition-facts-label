@@ -46,7 +46,9 @@ function options($ingredients){
     </div>
     <div class='section2'>
        <h4>Nutrition Facts Label:</h4>
-       <?php require_once 'nutrition_label.php'; ?>
+       <div id="nutrition-label-outer">
+         <div id="nutrition-label"> </div>
+       </div>
        <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display: block; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
     </div>
     <?php if (false) { ?>
@@ -62,4 +64,4 @@ function options($ingredients){
   </div>
 </div>
 
-<?php require_once 'nutrition_ui.php'; ?>
+<?php require_once 'front_end.php'; ?>

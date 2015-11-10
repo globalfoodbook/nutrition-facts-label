@@ -45,8 +45,12 @@ function nutrition_facts_label_pages() {
 }
 
 // nutrition_facts_label_form_view() displays the page content for the custom Nutrition Label menu
-function nutrition_facts_label_form_view() {
-  require_once 'form.php';
+function nutrition_facts_label_form_view() {?>
+  <h1>
+    <?php echo __('Nutrition Facts Label Generator', 'menu-gfb-nutrition-label') ?>
+  </h1>
+  <?php
+    require_once 'form.php';
 }
 
 function nutrition_facts_label_generator_sc(){

@@ -36,7 +36,6 @@ function options($ingredients){
   }
 </style>
 <div class='wrap'>
-  <h1><?php echo __( 'Nutrition Facts Label Generator', 'menu-gfb-nutrition-label' ) ?> </h1>
   <div class='gfb-nutrition-label-section'>
     <div class='section1'>
       <form name="gfb-nutrition-label-form" method='post' action='#'>

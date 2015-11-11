@@ -11,11 +11,11 @@ Author: Ikenna N. Okpala
 Version: 1.0
 Author URI: http://ikennaokpala.com/
 */
-define("NUT_API", "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=");
 // File Security Check
 if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME'])) {
     die('You do not have sufficient permissions to access this page');
 }
+require_once 'process.php';
 
 // Enqueue script and styles
 if ( !function_exists( 'gfb_nutrition_label_add_to_head' ) ):

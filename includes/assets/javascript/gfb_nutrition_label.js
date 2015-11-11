@@ -25,8 +25,8 @@ GFBNutritionLabel.prototype.generateImage = function(){
   });
 }
 
-GFBNutritionLabel.prototype.get = function(ingredients, url){
-  var path = url+"?action=nutrition_request&ingredients="+ingredients,
+GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
+  var path = url+"?action=nutrition_request&ingredients="+ingredients+"&post_id="+post_id,
   loader = document.getElementById("gfb-nutrition-label-loader"),
   errorMsg = "An error has occured. Please verify that you ingredient(s) are correctly entered line by line.",
   xmlhttp,
@@ -72,6 +72,7 @@ GFBNutritionLabel.prototype.get = function(ingredients, url){
 GFBNutritionLabel.prototype.submitForm = function() {
   var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value,
   url = document.getElementById("gfb-nutrition-label-url").value,
+  post_id = document.getElementById("gfb-nutrition-label-post-id").value,
   ingredients
 
   if (contentOfTextArea.length <= 1) {
@@ -82,7 +83,7 @@ GFBNutritionLabel.prototype.submitForm = function() {
     return false;
   } else {
     ingredients = contentOfTextArea.split("\n").join(",").trim();
-    this.get(ingredients, url);
+    this.get(ingredients, post_id, url);
     // document.forms['gfb-nutrition-label-form'].submit();
   }
 }

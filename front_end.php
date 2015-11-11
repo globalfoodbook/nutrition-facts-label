@@ -13,6 +13,11 @@ jQuery( document ).ready(function() {
     // console.log("Merged: ",jQuery.extend( settings, response ))
     jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response ));
 
+  <?php } else if (!empty($post) && $post->post_type == 'recipe') { ?>
+    var response = <?php echo json_encode(get_post_meta($post->ID, META_KEY)); ?>;
+
+    jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response ));
+
   <?php } else { ?>
     jQuery('#nutrition-label').nutritionLabel()
   <?php } ?>

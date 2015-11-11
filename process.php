@@ -16,7 +16,10 @@ add_action( 'wp_ajax_nopriv_nutrition_request', 'nutrition_request' );
 function nutrition_request(){
   if($_SERVER["REQUEST_METHOD"] == "GET") {
     if (!empty($_GET["ingredients"])) {
-      echo process_request($_GET["ingredients"]);
+      $nutrition_facts =  process_request($_GET["ingredients"]);
+      global $post;
+      update_post_meta($post->ID , 'gfb_recipe_meta_nutrition_facts', $nutrition_facts);
+      echo $nutrition_facts;
     }
   } else {
     echo "{}";

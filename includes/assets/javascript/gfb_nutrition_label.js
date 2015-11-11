@@ -50,8 +50,10 @@ GFBNutritionLabel.prototype.get = function(ingredients, url){
           "ingredientList": ingredients
         };
         jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, JSON.parse(xmlhttp.responseText)));
-        loader.style.display = "none";
+     } else {
+       alert("An error has occured. Please verify that you ingredient(s) are correctly entered line by line.");
      }
+    loader.style.display = "none";
    }
   //  console.log("url: ", path);
   xmlhttp.open("GET",path,true);

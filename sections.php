@@ -13,7 +13,8 @@
   <form name="gfb-nutrition-label-form" method='post' action='#'>
      <h4>Ingredients:</h4>
      <p><textarea id="gfb-nutrition-label-textarea" name='ingredients' rows='12' cols='33' <?php echo $readonly?>><?php echo $ingredients; ?></textarea>
-     <input id="gfb-nutrition-label-url" type="hidden" value="<?php echo C_URL?>" />
+     <input id="gfb-nutrition-label-url" name="url" type="hidden" value="<?php echo C_URL ?>" />
+     <input id="gfb-nutrition-label-post-id" name='post_id' type="hidden" value="<?php echo $post->ID ?>" />
      </p>
      <p><input type='button' name='Submit' value='Generate Label' style="display: block; width: 140px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;" onclick="gfbnutritionlabel.submitForm()"/></p>
   </form>

@@ -15,12 +15,14 @@ add_action( 'wp_ajax_nopriv_nutrition_request', 'nutrition_request' );
 
 function nutrition_request(){
   if($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (!empty($_GET["ingredients"])) {
+    if (!empty($_GET["ingredients"] && !empty($_GET["post_id"]))) {
+      $post_id = $_GET["post_id"];
       $nutrition_facts =  process_request($_GET["ingredients"]);
-      global $post;
-      update_post_meta($post->ID , META_KEY, $nutrition_facts);
-      echo $nutrition_facts;
+      if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
+         update_post_meta ($post_id, META_KEY, $nutrition_facts);
+      }
     }
+    echo $nutrition_facts;
   } else {
     echo "{}";
   }

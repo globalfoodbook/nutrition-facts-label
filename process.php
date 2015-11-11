@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
-
 add_action( 'wp_ajax_nutrition_request', 'nutrition_request' );
 add_action( 'wp_ajax_nopriv_nutrition_request', 'nutrition_request' );
 

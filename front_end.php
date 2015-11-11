@@ -10,13 +10,20 @@ jQuery( document ).ready(function() {
     };
   <?php if(!empty($nutrition)) {?>
     var response = <?php echo $nutrition; ?>
-    // console.log("Merged: ",jQuery.extend( settings, response ))
-    jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response ));
+    try {
+      jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, JSON.parse(response)));
+    } catch(error) {
+      console.log(error);
+    }
 
   <?php } else if (!empty($post) && $post->post_type == 'recipe') { ?>
     var response = <?php echo json_encode(get_post_meta($post->ID, META_KEY, true)); ?>;
     if (response.length > 0){
-      jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response ));
+      try {
+        jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, JSON.parse(response)));
+      } catch(error) {
+        console.log(error);
+      }
     } else {
       jQuery('#nutrition-label').nutritionLabel()
     }

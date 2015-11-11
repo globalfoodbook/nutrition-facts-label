@@ -26,17 +26,7 @@
    </div></p>
    <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display: <?php echo empty($hidden) ? 'block':'none';?>; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
 </div>
-<?php if (false) { ?>
-<div class='section3'>
-   <h4>Embedded Code:</h4>
-  <textarea id="gfb-nut-textarea" rows='12' cols='33' readonly>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="http://raw.githubusercontent.com/globalfoodbook/nutrition-facts-label/develop/includes/assets/javascript/nutritionLabel-min.js"></script>
-  <link rel="stylesheet" href="http://raw.githubusercontent.com/globalfoodbook/nutrition-facts-label/develop/includes/assets/css/nutritionLabel-min.css" type="text/css" media="all">
-  </textarea>
-</div>
-<?php }
-  require_once 'front_end.php';
+<?php require_once 'front_end.php';
 ?>
 
 </div>

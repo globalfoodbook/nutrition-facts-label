@@ -1,5 +1,5 @@
 <?php
-define("NUT_API", "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=");
+define("NUT_API", "http://nuts.globalfoodbook.net/v1/nutrition/facts?ingredients=");
 define(C_URL, admin_url('admin-ajax.php'));
 define(META_KEY, "gfb_recipe_meta_nutrition_facts");
 

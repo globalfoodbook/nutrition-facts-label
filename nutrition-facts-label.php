@@ -64,7 +64,7 @@ function nutrition_facts_label_generator_sc(){
 function embed_nutrition_label_sc(){
    gfb_nutrition_label_add_to_head();
    global $post;?>
-   <div class="content-right-first print-only">
+   <div class="print-only" style="width: 50%; display: block; float: right; position: relative";>
     	<div id="gfb-nutritional-embed-label" class="nutritional">
         <p><div id="nutrition-label-outer">
           <div id="nutrition-label"> </div>

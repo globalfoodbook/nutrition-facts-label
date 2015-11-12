@@ -66,9 +66,9 @@ function embed_nutrition_label_sc(){
    global $post;?>
    <div class="print-only" style="width: 50%; display: block; float: right; position: relative";>
     	<div id="gfb-nutritional-embed-label" class="nutritional">
-        <p><div id="nutrition-label-outer">
+        <div id="nutrition-label-outer">
           <div id="nutrition-label"> </div>
-        </div></p>
+        </div>
     		<?php
           $ingredients = implode(PHP_EOL, get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
           $nutrition = get_post_meta($post->ID, META_KEY)[0];

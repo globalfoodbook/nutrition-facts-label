@@ -49,6 +49,8 @@
 	font-family: 'Archivo Black';
 	white-space: nowrap;
 	letter-spacing: -2px;
+	margin: 0px !important;
+	font:	bold 400 2.7em/1.2em 'Archivo Black' !important;
 }
 .nutritionLabel .m {
 	font-size: .9em;

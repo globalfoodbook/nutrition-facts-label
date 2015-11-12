@@ -1,3 +1,4 @@
+<?php $serving = get_post_meta($post->ID, 'RECIPE_META_servings', true);?>
 <script type="text/javascript">
 jQuery( document ).ready(function() {
   var settings = {
@@ -6,6 +7,7 @@ jQuery( document ).ready(function() {
     	"showMonoFat":true,
       // "showDisclaimer" : true,
       "itemName": "",
+      "valueServingUnitQuantity": <?php echo (empty($serving) ? 1 : $serving)?>,
       "ingredientList":<?php echo json_encode(options($ingredients)); ?>
     };
     <?php if (!empty($post) && $post->post_type == 'recipe') { ?>

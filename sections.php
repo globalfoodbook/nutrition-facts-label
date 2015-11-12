@@ -26,7 +26,7 @@
    </div></p>
    <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display:inline; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
 </div>
-<?php require_once 'front_end.php';
+<?php require_once 'admin_front_end.php';
 ?>
 
 </div>

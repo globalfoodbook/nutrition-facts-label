@@ -61,11 +61,30 @@ function nutrition_facts_label_generator_sc(){
   nutrition_facts_label_form_view();
 }
 
+function embed_nutrition_label_sc(){
+   gfb_nutrition_label_add_to_head();
+   global $post;?>
+   <div class="content-right-first print-only">
+    	<div id="gfb-nutritional-embed-label" class="nutritional">
+        <p><div id="nutrition-label-outer">
+          <div id="nutrition-label"> </div>
+        </div></p>
+    		<?php
+          $ingredients = implode(PHP_EOL, get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
+          $nutrition = get_post_meta($post->ID, META_KEY)[0];
+        ?>
+    	</div>
+    </div>
+<?php
+  require_once 'front_end.php';
+}
+
 function beta_img(){
   return "<img src=".plugin_dir_url( __FILE__ ) .'includes/assets/images/beta.png'." />";
 }
 
 add_shortcode('nutrition_facts_label_generator', 'nutrition_facts_label_generator_sc');
+add_shortcode('embed_nutrition_label', 'embed_nutrition_label_sc');
 
 require_once 'meta_box.php';
 ?>

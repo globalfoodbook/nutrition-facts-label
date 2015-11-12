@@ -9,10 +9,12 @@ jQuery( document ).ready(function() {
       "ingredientList":<?php echo json_encode(options($ingredients)); ?>
     };
   <?php if(!empty($nutrition)) {?>
-    var response = <?php echo $nutrition; ?>
+    var response = <?php echo $nutrition; ?>;
+
     try {
       jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, JSON.parse(response)));
     } catch(error) {
+      jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, response));
       console.log(error);
     }
 

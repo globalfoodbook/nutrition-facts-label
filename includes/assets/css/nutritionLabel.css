@@ -43,6 +43,7 @@
 	line-height: normal;
 }
 .nutritionLabel .title {
+	font:	bold 400 2.7em/1.2em 'Archivo Black' !important;
 	line-height: .83em;
 	font-size: 2.7em;
 	padding-bottom: 4px;
@@ -50,7 +51,6 @@
 	white-space: nowrap;
 	letter-spacing: -2px;
 	margin: 0px !important;
-	font:	bold 400 2.7em/1.2em 'Archivo Black' !important;
 }
 .nutritionLabel .m {
 	font-size: .9em;

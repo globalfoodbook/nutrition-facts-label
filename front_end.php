@@ -1,6 +1,6 @@
 <?php $serving = get_post_meta($post->ID, 'RECIPE_META_servings', true);?>
 <script type="text/javascript">
-jQuery( document ).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
   var settings = {
     	"showServingUnitQuantity":true,
     	"showPolyFat":true,

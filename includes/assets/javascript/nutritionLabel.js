@@ -828,7 +828,7 @@
 				nutritionLabel += '<div class="nutritionLabel" style="' + borderCSS + ' width: '+ $this.settings.widthCustom + ';">\n';
 
 
-				nutritionLabel += tab1 + '<div id="n-label-title" class="n-label-title" style"line-height: .83em;	font-size: 2.7em;	padding-bottom: 4px;	font-family: \'Archivo Black\';	white-space: nowrap;	letter-spacing: -2px;	margin: 0px;">' + $this.settings.textNutritionFacts + '</div>\n';
+				nutritionLabel += tab1 + '<div id="n-label-title" class="n-label-title" style="line-height: .83em;	font-size: 2.7em;	padding-bottom: 4px;	font-family: \'Archivo Black\';	white-space: nowrap;	letter-spacing: -2px;	margin: 0px;">' + $this.settings.textNutritionFacts + '</div>\n';
 
 
 		if ($this.settings.showItemName){

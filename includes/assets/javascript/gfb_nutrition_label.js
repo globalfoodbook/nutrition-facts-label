@@ -58,7 +58,7 @@ GFBNutritionLabel.prototype.get = function(ingredients){
               "ingredientList": ingredients
             };
           response = JSON.parse(xmlhttp.responseText);
-          $('#nutrition-label').nutritionLabel($.extend(settings, response));
+          jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, response));
         } catch(error) {
           _this.notify(errorMsg + "\n" + error);
         }

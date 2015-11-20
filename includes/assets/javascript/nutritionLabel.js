@@ -841,7 +841,7 @@
 						$this.settings.originalServingUnitQuantity <= 0)
 				){
 				nutritionLabel += tab1 + '<div class="cf">\n';
-					nutritionLabel += tab2 + '<div class="rel servingSizeField">\n';
+					nutritionLabel += tab2 + '<div id="n-label-servingsizefield" class="rel servingSizeField">\n';
 
 					var textboxClass = 'unitQuantityBox';
 					if (!$this.settings.hideTextboxArrows){
@@ -884,9 +884,9 @@
 
 				if ($this.settings.originalServingUnitQuantity > 0){
 					nutritionLabel += tab2 + '<div class="cf">\n';
-						nutritionLabel += tab3 + '<div class="servingSizeText fl">' + $this.settings.textServingSize + '</div>\n';
+						nutritionLabel += tab3 + '<div id="n-label-servingsizetext" class="servingSizeText fl">' + $this.settings.textServingSize + '</div>\n';
 							nutritionLabel += $this.settings.showServingUnitQuantityTextbox ?
-								'' : tab3 + '<div class="servingUnitQuantity fl">' + parseFloat( $this.settings.originalServingUnitQuantity.toFixed($this.settings.decimalPlacesForNutrition) ) + '</div>\n';
+								'' : tab3 + '<div id="n-label-servingsizequantity" class="servingUnitQuantity fl">' + parseFloat( $this.settings.originalServingUnitQuantity.toFixed($this.settings.decimalPlacesForNutrition) ) + '</div>\n';
 
 					var unitAddedClass = '';
 					var gramsAddedClass = '';
@@ -895,7 +895,7 @@
 									$this.settings.valueServingSizeUnit != ''){
 							unitAddedClass = 'unitHasTextbox';
 							gramsAddedClass = 'gramsHasTextbox';
-							nutritionLabel += tab3 + '<div class="rel servingSizeField fl">\n';
+							nutritionLabel += tab3 + '<div id="n-label-servingsizefield" class="rel servingSizeField fl">\n';
 
 							var textboxClass = 'unitQuantityBox';
 							if (!$this.settings.hideTextboxArrows){

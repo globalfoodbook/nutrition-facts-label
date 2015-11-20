@@ -17,7 +17,7 @@
   #gfb-nutrition-label-notify {
     color: red !important;
     font-weight: bold;
-    margin-left: 12px;
+    margin-left: 3px;
   }
 </style>
 <div class='wrap'>

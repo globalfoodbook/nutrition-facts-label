@@ -15,7 +15,7 @@
     overflow: hidden;
   }
   #gfb-nutrition-label-notify {
-    color: red;
+    color: red !important;
     font-weight: bold;
     margin-left: 12px;
   }

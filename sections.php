@@ -12,7 +12,6 @@
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='post' action='#'>
      <h4>Ingredients:</h4>
-     <br/>
      <p><textarea id="gfb-nutrition-label-textarea" name='ingredients' rows='12' cols='33' <?php echo $readonly?>><?php echo $ingredients; ?></textarea>
      <input id="gfb-nutrition-label-url" name="url" type="hidden" value="<?php echo C_URL ?>" />
      <input id="gfb-nutrition-label-post-id" name='post_id' type="hidden" value="<?php echo $post->ID ?>" />

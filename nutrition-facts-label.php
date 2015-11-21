@@ -40,8 +40,10 @@ add_action('admin_menu', 'nutrition_facts_label_pages');
 
 // action function for above hook
 function nutrition_facts_label_pages() {
-    // Add a new top-level menu:
-    add_menu_page(__('Nutrition Facts Label by Global Food Book','menu-gfb-nutrition-label'), __('Nutrition Label','menu-gfb-nutrition-label'), 'manage_options', 'gfb-nutrition-label-settings', 'nutrition_facts_label_form_view' );
+  // Add a new top-level menu:
+  add_menu_page(__('Nutrition Facts Label by Global Food Book','menu-gfb-nutrition-label'), __('Nutrition Label','menu-gfb-nutrition-label'), 'manage_options', 'gfb-nutrition-label-settings', 'nutrition_facts_label_form_view' );
+
+  add_submenu_page( 'gfb-nutrition-label-settings', 'Update Recipes', 'Update Recipes', 'manage_options', 'gfb-nutrition-label-settings-2', 'nutrition_facts_label_update_recipes');
 }
 
 // nutrition_facts_label_form_view() displays the page content for the custom Nutrition Label menu
@@ -54,6 +56,16 @@ function nutrition_facts_label_form_view() {?>
   </h1>
   <?php
     require_once 'form.php';
+}
+
+function nutrition_facts_label_update_recipes(){?>
+  <h1 id="nutritiona-facts-label-main-title">
+    <?php
+      echo __('Update Recipes', 'menu-gfb-nutrition-label-2');
+      echo beta_img();
+    ?>
+  </h1>
+  <?php
 }
 
 function nutrition_facts_label_generator_sc(){

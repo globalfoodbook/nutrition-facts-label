@@ -76,8 +76,7 @@ GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
 GFBNutritionLabel.prototype.submitForm = function() {
   var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value,
   url = document.getElementById("gfb-nutrition-label-url").value,
-  post_id = document.getElementById("gfb-nutrition-label-post-id").value,
-  ingredients
+  post_id = document.getElementById("gfb-nutrition-label-post-id").value
 
   if (contentOfTextArea.length <= 1) {
     this.notify("Please add your ingredients before submitting this form.")
@@ -86,14 +85,17 @@ GFBNutritionLabel.prototype.submitForm = function() {
     this.notify("Please remove exclammation mark (!) from your ingredients listing.")
     return false;
   } else {
-    ingredients = contentOfTextArea.split("\n").join(",").trim();
-    this.get(ingredients, post_id, url);
+    this.get(this.format(contentOfTextArea), post_id, url);
     // document.forms['gfb-nutrition-label-form'].submit();
   }
 }
 
 GFBNutritionLabel.prototype.notify = function(message) {
   jQuery('#gfb-nutrition-label-notify').show().html(message).delay(10000).fadeOut('slow');
+}
+
+GFBNutritionLabel.prototype.format = function(ingredients) {
+  return ingredients.split("\n").join(",").replace(/\s\s+/g, " ").trim();
 }
 
 gfbnutritionlabel = new GFBNutritionLabel();

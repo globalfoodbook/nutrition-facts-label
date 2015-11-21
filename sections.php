@@ -10,7 +10,7 @@
 ?>
 <div>
 <div class='section1'>
-  <form name="gfb-nutrition-label-form" method='post' action='#'>
+  <form name="gfb-nutrition-label-form" method='get' action='#'>
      <h4>Ingredients:</h4>
      <p><textarea id="gfb-nutrition-label-textarea" name='ingredients' rows='12' cols='33' <?php echo $readonly?>><?php echo $ingredients; ?></textarea>
      <input id="gfb-nutrition-label-url" name="url" type="hidden" value="<?php echo C_URL ?>" />

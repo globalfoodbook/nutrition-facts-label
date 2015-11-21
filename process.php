@@ -4,13 +4,6 @@ define(C_URL, admin_url('admin-ajax.php'));
 define(META_KEY, "gfb_recipe_meta_nutrition_facts");
 ini_set('default_socket_timeout', 900); // increase default_socket_timeout
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (!empty($_POST["ingredients"])) {
-    $ingredients = $_POST["ingredients"];
-    $nutrition = process_request($ingredients);
-  }
-}
-
 add_action( 'wp_ajax_nutrition_request', 'nutrition_request' );
 add_action( 'wp_ajax_nopriv_nutrition_request', 'nutrition_request' );
 
@@ -22,6 +15,9 @@ function nutrition_request(){
       if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
          update_post_meta ($post_id, META_KEY, $nutrition_facts);
       }
+    } elseif(!empty($_GET["ingredients"])) {
+      $ingredients     = $_GET["ingredients"];
+      $nutrition_facts = process_request($ingredients);
     }
     echo $nutrition_facts;
   } else {

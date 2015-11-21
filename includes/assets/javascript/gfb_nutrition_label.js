@@ -28,14 +28,13 @@ GFBNutritionLabel.prototype.generateImage = function(){
   servingSizeField.style.display = "inline";
 }
 
-GFBNutritionLabel.prototype.get = function(ingredients){
-  var url = "http://nuts.globalfoodbook.net/v1/nutrition/facts?"
-  path = url+"ingredients="+ingredients,
+GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
+  var path = url+"?action=nutrition_request&ingredients="+ingredients+"&post_id="+post_id,
   loader = document.getElementById("gfb-nutrition-label-loader"),
   errorMsg = "An error has occured. Please verify that you ingredient(s) are correctly entered line by line.",
   _this = this,
-  xmlhttp = '',
-  response = ''
+  xmlhttp,
+  response
 
   loader.style.display = "inline";
 
@@ -76,6 +75,8 @@ GFBNutritionLabel.prototype.get = function(ingredients){
 
 GFBNutritionLabel.prototype.submitForm = function() {
   var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value,
+  url = document.getElementById("gfb-nutrition-label-url").value,
+  post_id = document.getElementById("gfb-nutrition-label-post-id").value,
   ingredients
 
   if (contentOfTextArea.length <= 1) {
@@ -86,7 +87,7 @@ GFBNutritionLabel.prototype.submitForm = function() {
     return false;
   } else {
     ingredients = contentOfTextArea.split("\n").join(",").trim();
-    this.get(ingredients);
+    this.get(ingredients, post_id, url);
     // document.forms['gfb-nutrition-label-form'].submit();
   }
 }

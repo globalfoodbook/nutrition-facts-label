@@ -58,7 +58,7 @@ function nutrition_facts_label_form_view() {?>
     require_once 'form.php';
 }
 
-function nutrition_facts_label_update_recipes(){?>
+function nutrition_facts_label_update_recipes() {?>
   <h1 id="nutritiona-facts-label-main-title">
     <?php
       echo __('Update Recipes', 'menu-gfb-nutrition-label-1');
@@ -66,6 +66,7 @@ function nutrition_facts_label_update_recipes(){?>
     ?>
   </h1>
   <?php
+    require_once 'update_recipes.php';
 }
 
 function nutrition_facts_label_generator_sc(){
@@ -76,7 +77,7 @@ function nutrition_facts_label_generator_sc(){
 function embed_nutrition_label_sc(){
    gfb_nutrition_label_add_to_head();
    global $post;?>
-   <div class="print-only" style="width: 50%; display: block; float: right; position: relative";>
+   <div class="print-only" style="width: 50%; display: block; float: right; position: relative;">
     	<div id="gfb-nutritional-embed-label" class="nutritional">
         <div id="nutrition-label-outer">
           <div id="nutrition-label"> </div>

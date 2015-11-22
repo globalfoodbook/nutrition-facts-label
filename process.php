@@ -34,6 +34,10 @@ function process_request($ingredients){
 }
 
 function options($ingredients){
-  return implode(",", explode("\n", trim($ingredients)));
+  if(is_array($ingredients)) {
+    return implode(",", $ingredients);
+  } else {
+    return implode(",", explode("\n", trim($ingredients)));
+  }
 }
 ?>

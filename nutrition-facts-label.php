@@ -43,9 +43,9 @@ function nutrition_facts_label_pages() {
   // Add a new top-level menu:
   add_menu_page(__('Nutrition Facts Label by Global Food Book','menu-gfb-nutrition-label'), __('Nutrition Label','menu-gfb-nutrition-label'), 'manage_options', 'gfb-nutrition-label-settings', 'nutrition_facts_label_form_view' );
 
-  if(is_admin()) {
-    add_submenu_page( 'gfb-nutrition-label-settings', 'Update Recipes', 'Update Recipes', 'manage_options', 'gfb-nutrition-label-settings-1', 'nutrition_facts_label_update_recipes');
-  }
+  // if(is_admin()) {
+  //   add_submenu_page( 'gfb-nutrition-label-settings', 'Update Recipes', 'Update Recipes', 'manage_options', 'gfb-nutrition-label-settings-1', 'nutrition_facts_label_update_recipes');
+  // }
 }
 
 // nutrition_facts_label_form_view() displays the page content for the custom Nutrition Label menu
@@ -60,16 +60,14 @@ function nutrition_facts_label_form_view() {?>
     require_once 'form.php';
 }
 
-function nutrition_facts_label_update_recipes() {?>
-  <h1 id="nutritiona-facts-label-main-title">
-    <?php
-      echo __('Update Recipes', 'menu-gfb-nutrition-label-1');
-      echo beta_img();
-    ?>
-  </h1>
-  <?php
-    require_once 'update_recipes.php';
-}
+// function nutrition_facts_label_update_recipes() {
+  // <h1 id="nutritiona-facts-label-main-title">
+      // echo __('Update Recipes', 'menu-gfb-nutrition-label-1');
+      // echo beta_img();
+
+  // </h1>
+    // require_once 'update_recipes.php';
+// }
 
 function nutrition_facts_label_generator_sc(){
   gfb_nutrition_label_add_to_head();

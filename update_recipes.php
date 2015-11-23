@@ -31,14 +31,14 @@
       $my_query = new WP_Query($args);
       if( $my_query->have_posts() ) {
         while ($my_query->have_posts()) : $my_query->the_post();
-        $post_id = get_the_ID();
-        $ingredients = get_post_meta($post_id, 'RECIPE_META_ingredients', true);
-        $nutrition_facts =  process_request($ingredients);
-        if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
-           update_post_meta ($post_id, META_KEY, $nutrition_facts);
-        } ?>
-          <p><a href="<?php the_permalink() ?>" rel="bookmark" title="Update complete <?php the_title_attribute(); ?>"><?php the_title(); ?></a> Update Complete!</p>
-          <?php
+          $post_id = get_the_ID();
+          $ingredients = get_post_meta($post_id, 'RECIPE_META_ingredients', true);
+          $nutrition_facts =  process_request($ingredients);
+          if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
+             update_post_meta ($post_id, META_KEY, $nutrition_facts);
+          } ?>
+            <p><a href="<?php the_permalink() ?>" rel="bookmark" title="Update complete <?php the_title_attribute(); ?>"><?php the_title(); ?></a> Update Complete!</p>
+        <?php
         endwhile;
       }
       wp_reset_query();

@@ -14,7 +14,7 @@
   }
 </style>
 <div class='wrap'>
-  <p>NB: You need to be an administrator to use this feature. </p>
+  <p>NB: You need to be an administrator to use this feature. Please backup your database before starting this process.</p>
   <div class='gfb-nutrition-label-section' <?php echo "test"; ?> >
     <form name='gfb-nutrition-label-form' method='post' action='#'>
       <input id='gfb-nutrition-label-update-button' type='submit' name='Submit' value='Update All Recipes' style='' />

@@ -14,11 +14,6 @@
     display: inline-block !important;
     overflow: hidden;
   }
-  #gfb-nutrition-label-notify {
-    color: red !important;
-    font-weight: bold;
-    margin-left: 3px;
-  }
 </style>
 <div class='wrap'>
   <div class='gfb-nutrition-label-section'>

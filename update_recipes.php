@@ -1,3 +1,16 @@
+<?php
+  $args = array(
+    'post_type' => 'recipe',
+    'post_status' => 'publish'
+  );
+
+  if($_SERVER["REQUEST_METHOD"] == "GET") {
+    $query = new WP_Query($args);
+  }
+  // if($_SERVER["REQUEST_METHOD"] == "POST") {
+  //     update_recipes_request();
+  // }
+?>
 <style media="screen">
   #gfb-nutrition-label-update-button {
     display: block;
@@ -14,34 +27,22 @@
   }
 </style>
 <div class='wrap'>
+  <img id="gfb-nutrition-label-loader" src="<?php echo plugin_dir_url( __FILE__ ) .'includes/assets/images/load.gif'?>" style="display:none"/>
+  <p id="gfb-nutrition-label-notify" style="display:none"></p>
   <p>NB: You need to be an administrator to use this feature. Please backup your database before starting this process.</p>
-  <div class='gfb-nutrition-label-section' <?php echo "test"; ?> >
+  <div class='gfb-nutrition-label-section'>
     <form name='gfb-nutrition-label-form' method='post' action='#'>
-      <input id='gfb-nutrition-label-update-button' type='submit' name='Submit' value='Update All Recipes' style='' />
+      <input id='gfb-nutrition-label-update-button' type='button' name='Submit' value='Update All Recipes' style='' />
+      <input id='gfb-nutrition-label-update-url' type='hidden' name='url' value='<?php echo C_URL;?>' style='' />
     </form>
   </div>
 </div>
-<?php
-  if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (is_admin()) {
-      $args=array(
-        'post_type' => 'recipe',
-        'post_status' => 'publish'
-      );
-      $my_query = new WP_Query($args);
-      if( $my_query->have_posts() ) {
-        while ($my_query->have_posts()) : $my_query->the_post();
-          $post_id = get_the_ID();
-          $ingredients = get_post_meta($post_id, 'RECIPE_META_ingredients', true);
-          $nutrition_facts =  process_request($ingredients);
-          if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
-             update_post_meta ($post_id, META_KEY, $nutrition_facts);
-          } ?>
-            <p><a href="<?php the_permalink() ?>" rel="bookmark" title="Update complete <?php the_title_attribute(); ?>"><?php the_title(); ?></a> Update Complete!</p>
-        <?php
-        endwhile;
-      }
-      wp_reset_query();
+
+<script type='text/javascript'>
+  jQuery('#gfb-nutrition-label-update-button').on('click', function(){
+    console.log("Clicking");
+    for(i = 1; i <= <?php echo $query->max_num_pages; ?>; i++) {
+      gfbnutritionlabel.update(i);
     }
-  }
-?>
+  });
+</script>

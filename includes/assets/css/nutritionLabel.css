@@ -252,3 +252,9 @@
 .nutritionLabel .ingredientListDiv {
 	padding-top: 10px;
 }
+
+#gfb-nutrition-label-notify {
+	color: red !important;
+	font-weight: bold;
+	margin-left: 3px;
+}

@@ -40,4 +40,32 @@ function options($ingredients){
     return implode(",", explode("\n", trim($ingredients)));
   }
 }
+
+add_action( 'wp_ajax_update_recipes_request', 'update_recipes_request' );
+function update_recipes_request() {
+  $posts = array();
+  $status = false;
+  $args = array(
+    'post_type' => 'recipe',
+    'post_status' => 'publish',
+    'paged' => $_POST['page_number'],
+    'page' => $_POST['page_number']
+  );
+
+  $wp_query = new WP_Query($args);
+  if($wp_query->have_posts()) {
+    while ($wp_query->have_posts()) : $wp_query->the_post();
+      $post_id = get_the_ID();
+      $ingredients = get_post_meta($post_id, 'RECIPE_META_ingredients', true);
+      $nutrition_facts =  process_request($ingredients);
+      $status = add_post_meta($post_id, META_KEY, $nutrition_facts, true);
+      if (!$status) {
+         $status = update_post_meta ($post_id, META_KEY, $nutrition_facts);
+      }
+      array_push($posts, "<p><a href=".the_permalink()."rel='bookmark' title='Update complete".the_title_attribute()."'>".the_title()."</a>". ($status ? "Successful Update!" : "Unsuccessful Update")."</p>");
+    endwhile;
+  }
+  echo json_encode($posts);
+  die();
+}
 ?>

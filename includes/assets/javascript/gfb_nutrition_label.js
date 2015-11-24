@@ -69,8 +69,44 @@ GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
    }
 
   xmlhttp.open("GET",path,true);
-  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send();
+}
+
+GFBNutritionLabel.prototype.update = function(page_number){
+  var url = document.getElementById("gfb-nutrition-label-update-url").value,
+  path = url+"?action=update_recipes_request",
+  loader = document.getElementById("gfb-nutrition-label-loader"),
+  _this = this,
+  xmlhttp,
+  response
+
+  loader.style.display = "inline";
+
+  if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+   xmlhttp=new XMLHttpRequest();
+  } else {// code for IE6, IE5
+   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xmlhttp.onload = function(){
+    if (xmlhttp.readyState == 4){
+      if(xmlhttp.status == 200) {
+        console.log("Response: ", xmlhttp.responseText);
+        try {
+          response = JSON.parse(xmlhttp.responseText);
+        } catch(error) {
+          _this.notify("\n" + error);
+        }
+      } else {
+        _this.notify("Error!");
+      }
+    }
+   }
+
+  loader.style.display = "none";
+  xmlhttp.open("POST",path,false);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send("page_number="+page_number);
 }
 
 GFBNutritionLabel.prototype.submitForm = function() {

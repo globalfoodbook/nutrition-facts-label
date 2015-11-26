@@ -62,9 +62,9 @@ function update_recipes_request() {
       if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
          update_post_meta ($post_id, META_KEY, $nutrition_facts);
       }
-      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => $url, 'success' => true, 'error' => false));
+      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => $url, 'success' => true, 'error' => false, 'message' => 'Update successful.'));
     } else {
-      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => $url, 'success' => false, 'error' => true));
+      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => $url, 'success' => false, 'error' => true, 'message' => 'Update unsuccessful.'));
     }
   }
   die();

@@ -52,7 +52,9 @@ function isValid($response) {
 add_action( 'wp_ajax_update_recipes_request', 'update_recipes_request' );
 function update_recipes_request() {
   if (!empty($_POST["id"])) {
-    $post_id = $_POST["id"];
+    $post_id     = $_POST["id"];
+    $post        = get_post($post_id);
+    $url         = post_permalink($post_id);
     $ingredients = get_post_meta($post_id, 'RECIPE_META_ingredients', true);
 
     $nutrition_facts = process_request($ingredients);
@@ -60,10 +62,9 @@ function update_recipes_request() {
       if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {
          update_post_meta ($post_id, META_KEY, $nutrition_facts);
       }
-      $post = get_post($post_id);
-      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => post_permalink($post_id), 'success' => true, 'error' => false));
+      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => $url, 'success' => true, 'error' => false));
     } else {
-      echo "{'success': false, 'error': true}";
+      echo json_encode(array('ID' => $post->ID,'post_title' => $post->post_title,'url' => $url, 'success' => false, 'error' => true));
     }
   }
   die();

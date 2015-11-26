@@ -22,7 +22,7 @@ function esc_quotes( $string ) {
 			$sql = "SELECT ID FROM $wpdb->posts WHERE post_type = 'recipe' AND post_status = 'publish' ORDER BY post_date DESC";
 			$post_ids = wp_list_pluck($wpdb->get_results($sql), 'ID');
 		} else {
-			$post_ids = array(preg_replace( '/^,/', '', $_GET['ids']));
+			$post_ids = explode(',',preg_replace( '/^,/', '', $_GET['ids']));
 		}
 		$ids = implode( ',', $post_ids);
 

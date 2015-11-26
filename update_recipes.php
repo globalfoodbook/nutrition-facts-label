@@ -40,13 +40,15 @@ function esc_quotes( $string ) {
 		<div id="gfb-nutrition-update-bar" style="position:relative;height:25px;">
 			<div id="gfb-nutrition-update-bar-percent" style="position:absolute;left:50%;top:50%;width:300px;margin-left:-150px;height:25px;margin-top:-9px;font-weight:bold;text-align:center;"></div>
 		</div>
-
-		<p><input type="button" class="button hide-if-no-js" name="gfb-nutrition-update-stop" id="gfb-nutrition-update-stop" value="<?php _e( 'Abort', 'gfb-nutrition-label-update' ) ?>" /></p>
+		<div id="gfb-nutrition-update-stop-div" >
+			<p>click below to if you want to stop or abort this process.</p>
+			<p><input type="button" class="button hide-if-no-js" name="gfb-nutrition-update-stop" id="gfb-nutrition-update-stop" value="<?php _e( 'Abort', 'gfb-nutrition-label-update' ) ?>" /></p>
+		</div>
 
 		<h3 class="title"><?php _e( 'Debugging Information', 'gfb-nutrition-label-update' ) ?></h3>
 
 		<p>
-			<?php printf( __( 'Total Published Recipes: %s', 'gfb-nutrition-label-update' ), $count ); ?><br />
+			<?php printf( __( 'Total: %s', 'gfb-nutrition-label-update' ), $count ); ?><br />
 			<?php printf( __( 'Successful: %s', 'gfb-nutrition-label-update' ), '<span id="gfb-nutrition-update-debug-successcount">0</span>' ); ?><br />
 			<?php printf( __( 'Unsuccessful: %s', 'gfb-nutrition-label-update' ), '<span id="gfb-nutrition-update-debug-failurecount">0</span>' ); ?>
 		</p>
@@ -95,18 +97,14 @@ function esc_quotes( $string ) {
 					if ( success ) {
 						recipes_update_successes = recipes_update_successes + 1;
 						$("#gfb-nutrition-update-debug-successcount").html(recipes_update_successes);
-						$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> <span style=color:green;font-weight:bold;>"+response.message+"</span></li>");
+						color = 'green';
 					} else {
 						recipes_update_errors = recipes_update_errors + 1;
 						recipes_update_failedlist = recipes_update_failedlist + ',' + id;
 						$("#gfb-nutrition-update-debug-failurecount").html(recipes_update_errors);
-						if(response.error == false) {
-							$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> <span style=color:red;font-weight:bold;>"+response.message+"</span></li>");
-						} else {
-							var post_url = site_url +"?p=" +id
-							$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + post_url + "' target='_blank'>"+response.error+"</a> <span style=color:red;font-weight:bold;>"+response.message+"</span></li>");
-						}
+						color = 'red';
 					}
+					$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> <span style=color:"+color+";font-weight:bold;>"+response.message+"</span></li>");
 				}
 
 				// Called when all nutrition data for recipes updated. Shows the results and cleans up.
@@ -114,7 +112,8 @@ function esc_quotes( $string ) {
 					recipes_update_timeend = new Date().getTime();
 					recipes_update_totaltime = Math.round( ( recipes_update_timeend - recipes_update_timestart ) / 1000 );
 
-					$('#gfb-nutrition-update-stop').hide();
+					// $('#gfb-nutrition-update-stop').hide();
+					$('#gfb-nutrition-update-stop-div').hide();
 
 					if ( recipes_update_errors > 0 ) {
 						recipes_update_resulttext = '<?php echo $text_failures; ?>';

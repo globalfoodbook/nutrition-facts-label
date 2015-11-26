@@ -1,5 +1,5 @@
 <?php
-// This code was adapted from the Regenerate Thumbnails plugin
+// This code was adapted from the Regenerate Thumbnails plugin https://wordpress.org/plugins/regenerate-thumbnails/
 function esc_quotes( $string ) {
 	return str_replace( '"', '\"', $string );
 }

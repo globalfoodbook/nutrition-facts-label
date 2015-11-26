@@ -422,7 +422,7 @@
 		//if the text box for the unit quantity is shown
 		if ($settings.showServingUnitQuantityTextbox){
 			//increase the unit quantity by clicking the up arrow
-			$('#'+$elem.attr('id')).delegate('.unitQuantityUp', 'click', function(e){
+			$('#'+$elem.attr('id')).on('click', '.unitQuantityUp', function(e){
 				e.preventDefault();
 				$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );
 				$settingsHolder.totalContainerQuantity = $settings.totalContainerQuantity;
@@ -432,7 +432,7 @@
 			});
 
 			//decrease the unit quantity by clicking the down arrow
-			$('#'+$elem.attr('id')).delegate('.unitQuantityDown', 'click', function(e){
+			$('#'+$elem.attr('id')).on('click', '.unitQuantityDown', function(e){
 				e.preventDefault();
 				$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );
 				$settingsHolder.originalServingUnitQuantity = $settings.originalServingUnitQuantity;
@@ -442,7 +442,7 @@
 			});
 
 			//the textbox unit quantity value is changed
-			$('#'+$elem.attr('id')).delegate('.unitQuantityBox', 'change', function(e){
+			$('#'+$elem.attr('id')).on('change', '.unitQuantityBox', function(e){
 				e.preventDefault();
 				$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );
 				$settingsHolder.originalServingUnitQuantity = $settings.originalServingUnitQuantity;
@@ -452,7 +452,7 @@
 			});
 
 			//the textbox unit quantity value is changed
-			$('#'+$elem.attr('id')).delegate('.unitQuantityBox', 'keydown', function(e){
+			$('#'+$elem.attr('id')).on('keydown','.unitQuantityBox', function(e){
 				if (e.keyCode == 13){
 					e.preventDefault();
 					$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );
@@ -828,7 +828,7 @@
 				nutritionLabel += '<div class="nutritionLabel" style="' + borderCSS + ' width: '+ $this.settings.widthCustom + ';">\n';
 
 
-				nutritionLabel += tab1 + '<div class="title">' + $this.settings.textNutritionFacts + '</div>\n';
+				nutritionLabel += tab1 + '<div id="n-label-title" class="n-label-title" style="line-height: .83em;	font-size: 2.7em;	padding-bottom: 4px;	font-family: \'Archivo Black\';	white-space: nowrap;	letter-spacing: -2px;	margin: 0px;">' + $this.settings.textNutritionFacts + '</div>\n';
 
 
 		if ($this.settings.showItemName){
@@ -841,7 +841,7 @@
 						$this.settings.originalServingUnitQuantity <= 0)
 				){
 				nutritionLabel += tab1 + '<div class="cf">\n';
-					nutritionLabel += tab2 + '<div class="rel servingSizeField">\n';
+					nutritionLabel += tab2 + '<div id="n-label-servingsizefield" class="rel servingSizeField">\n';
 
 					var textboxClass = 'unitQuantityBox';
 					if (!$this.settings.hideTextboxArrows){
@@ -884,9 +884,9 @@
 
 				if ($this.settings.originalServingUnitQuantity > 0){
 					nutritionLabel += tab2 + '<div class="cf">\n';
-						nutritionLabel += tab3 + '<div class="servingSizeText fl">' + $this.settings.textServingSize + '</div>\n';
+						nutritionLabel += tab3 + '<div id="n-label-servingsizetext" class="servingSizeText fl">' + $this.settings.textServingSize + '</div>\n';
 							nutritionLabel += $this.settings.showServingUnitQuantityTextbox ?
-								'' : tab3 + '<div class="servingUnitQuantity fl">' + parseFloat( $this.settings.originalServingUnitQuantity.toFixed($this.settings.decimalPlacesForNutrition) ) + '</div>\n';
+								'' : tab3 + '<div id="n-label-servingsizequantity" class="servingUnitQuantity fl">' + parseFloat( $this.settings.originalServingUnitQuantity.toFixed($this.settings.decimalPlacesForNutrition) ) + '</div>\n';
 
 					var unitAddedClass = '';
 					var gramsAddedClass = '';
@@ -895,7 +895,7 @@
 									$this.settings.valueServingSizeUnit != ''){
 							unitAddedClass = 'unitHasTextbox';
 							gramsAddedClass = 'gramsHasTextbox';
-							nutritionLabel += tab3 + '<div class="rel servingSizeField fl">\n';
+							nutritionLabel += tab3 + '<div id="n-label-servingsizefield" class="rel servingSizeField fl">\n';
 
 							var textboxClass = 'unitQuantityBox';
 							if (!$this.settings.hideTextboxArrows){

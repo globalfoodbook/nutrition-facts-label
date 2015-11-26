@@ -131,40 +131,27 @@ function esc_quotes( $string ) {
 						type: 'POST',
 						url: "<?php echo C_URL;?>",
 						data: { action: "update_recipes_request", id: id },
-						success: function( response ) {
-							try {
-								response = JSON.parse(response);
-								// console.log("response", response);
-								// console.log("status", response.success);
-							} catch (e) {
-								if ( response !== Object( response ) || ( typeof response.success === "undefined") ) {
-									console.log(response);
-									response = new Object;
-									response.success = false;
-									response.error = "<?php printf( esc_js( __( 'Request terminated: (ID %s). Could be server error/downtime, network problems or error with your ingredients listing.', 'gfb-nutrition-label-update' ) ), '" + id + "' ); ?>";
-									response.message = 'Update unsuccessful.';
-								}
-							}
-
+						success: function(response) {
+							response = compose(response)
 							if ( response.success ) {
-								GFBNutritionLabelStatus( id, true, response );
+								GFBNutritionLabelStatus(id, true, response);
 							}
 							else {
-								GFBNutritionLabelStatus( id, false, response );
+								GFBNutritionLabelStatus(id, false, response);
 							}
 
-							if ( recipes_update_recipes.length && recipes_update_continue ) {
-								UpdateNutritionFacts( recipes_update_recipes.shift() );
+							if(recipes_update_recipes.length && recipes_update_continue) {
+								UpdateNutritionFacts(recipes_update_recipes.shift());
 							}
 							else {
 								GFBNutritionLabelFinal();
 							}
 						},
-						error: function( response ) {
-							GFBNutritionLabelStatus( id, false, response );
+						error: function(response) {
+							GFBNutritionLabelStatus(id, false, compose(response));
 
-							if ( recipes_update_recipes.length && recipes_update_continue ) {
-								UpdateNutritionFacts( recipes_update_recipes.shift() );
+							if(recipes_update_recipes.length && recipes_update_continue) {
+								UpdateNutritionFacts(recipes_update_recipes.shift());
 							}
 							else {
 								GFBNutritionLabelFinal();
@@ -175,6 +162,23 @@ function esc_quotes( $string ) {
 
 				UpdateNutritionFacts( recipes_update_recipes.shift() );
 			});
+
+			function compose(response) {
+				try {
+					response = JSON.parse(response);
+					console.log("response", response);
+					console.log("status", response.success);
+				} catch (e) {
+					if ( response !== Object( response ) || ( typeof response.success === "undefined") ) {
+						console.log("New object: ", response);
+						response = new Object;
+						response.success = false;
+						response.error = "<?php printf( esc_js( __( 'Request terminated: (ID %s). Could be server error/downtime, network problems or error with your ingredients listing.', 'gfb-nutrition-label-update' ) ), '" + id + "' ); ?>";
+						response.message = 'Update unsuccessful.';
+					}
+				}
+				return response;
+			}
 		// ]]>
 		</script>
 <?php } else { ?>

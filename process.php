@@ -28,8 +28,10 @@ function nutrition_request(){
 
 function process_request($ingredients){
   $url = NUT_API.urlencode(options($ingredients));
-  $context = stream_context_create(array('http'=>array('method'=>"GET")));
+  $context = stream_context_create(array('http'=>array('method'=>'GET','ignore_errors'=>TRUE)));
+
   $json = file_get_contents($url, 0, $context);
+
   return json_encode(json_decode($json, true), JSON_PRETTY_PRINT);
 }
 

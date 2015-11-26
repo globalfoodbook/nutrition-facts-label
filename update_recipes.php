@@ -9,23 +9,28 @@ function esc_quotes( $string ) {
 	<div class="wrap gfb-nutrition-label">
 		<?php
 		// When the button is clicked
-		if(!empty($_POST['gfb-nutrition-label-update'])) {
+		if(!empty($_POST['gfb-nutrition-label-update']) || !empty($_REQUEST['ids'])) {
+			if (empty($_GET['ids'])){
 			$args = array(
 				'post_type' => 'recipe',
 				'post_status' => 'publish'
 			);
 			$query = new WP_Query($args);
+			// $num_pages = $query->max_num_pages;
 			$post_ids = wp_list_pluck( $query->posts, 'ID' );
-			$ids = implode( ',', $post_ids);
+		} else {
+			$post_ids = array(preg_replace( '/^,/', '', $_GET['ids']));
+		}
+		$ids = implode( ',', $post_ids);
 
-			echo '	<p>' . __( "Please be patient while your recipes are updated. This can take a while if your server is slow or if network is busy. Do not navigate away from this page until this script is done or the recipes will not be updated. You will be notified via this page on completion.", 'gfb-nutrition-label-update' ) . '</p>';
+		echo '	<p>' . __( "Please be patient while your recipes are updated. This can take a while if your server is slow or if network is busy. Do not navigate away from this page until this script is done or the recipes will not be updated. You will be notified via this page on completion.", 'gfb-nutrition-label-update' ) . '</p>';
 
-			$count = count( $post_ids );
+		$count = count( $post_ids );
 
-			$text_goback = ( ! empty( $_GET['goback'] ) ) ? sprintf( __( 'To go back to the previous page, <a href="%s">click here</a>.', 'gfb-nutrition-label-update' ), 'javascript:history.go(-1)' ) : '';
-			$text_failures = sprintf( __( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were %3$s failure(s). Try again, <a href="%4$s">click here</a>. %5$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", "' + recipes_update_errors + '", esc_url( wp_nonce_url( admin_url( 'tools.php?page=gfb-nutrition-label-settings-1&goback=1' ), 'gfb-nutrition-label-update' ) . '&ids=' ) . "' + recipes_update_failedlist + '", $text_goback );
-			$text_nofailures = sprintf( __( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were 0 failures. %3$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", $text_goback );
-		?>
+		$text_goback = ( ! empty( $_GET['goback'] ) ) ? sprintf( __( 'To go back to the previous page, <a href="%s">click here</a>.', 'gfb-nutrition-label-update' ), 'javascript:history.go(-1)' ) : '';
+		$text_failures = sprintf(__( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were %3$s failure(s). Try again, <a href="%4$s">click here</a>. %5$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", "' + recipes_update_errors + '", esc_url( wp_nonce_url( admin_url( 'admin.php?page=gfb-nutrition-label-settings-1&goback=1' ), 'gfb-nutrition-label-update' ) . '&ids=' ) . "' + recipes_update_failedlist + '", $text_goback );
+		$text_nofailures = sprintf(__( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were 0 failures. %3$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", $text_goback );
+	?>
 
 
 		<noscript><p><em><?php _e( 'You must enable Javascript in order to proceed!', 'gfb-nutrition-label-update' ) ?></em></p></noscript>
@@ -135,7 +140,7 @@ function esc_quotes( $string ) {
 									console.log(response);
 									response = new Object;
 									response.success = false;
-									response.error = "<?php printf( esc_js( __( 'Request terminated: (ID %s). Server downtime, Network Problems or error with your ingredients listing.', 'gfb-nutrition-label-update' ) ), '" + id + "' ); ?>";
+									response.error = "<?php printf( esc_js( __( 'Request terminated: (ID %s). Could be server error/downtime, network problems or error with your ingredients listing.', 'gfb-nutrition-label-update' ) ), '" + id + "' ); ?>";
 									response.message = 'Update unsuccessful.';
 								}
 							}
@@ -175,7 +180,7 @@ function esc_quotes( $string ) {
 	<form method="post" action="">
 <?php wp_nonce_field('gfb-nutrition-label-update') ?>
 
-	<p><?php printf( __( "Use this tool to add or update nutrition facts label data for all published recipes on your blog. This is useful as we contimue to improve our algorithms.", 'gfb-nutrition-label-update' ), admin_url( 'options-media.php' ) ); ?></p>
+	<p><?php printf( __( "Use this tool to add or update nutrition facts label data for all published recipes on your blog. This is useful as we contimue to improve our algorithms.", 'gfb-nutrition-label-update' ), admin_url( 'admin.php' ) ); ?></p>
 
 	<p><?php _e( 'To begin, click the button below.', 'gfb-nutrition-label-update '); ?></p>
 

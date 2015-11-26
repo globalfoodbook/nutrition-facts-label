@@ -20,15 +20,20 @@ require_once 'process.php';
 // Enqueue script and styles
 if ( !function_exists( 'gfb_nutrition_label_add_to_head' ) ):
   function gfb_nutrition_label_add_to_head() {
-     wp_register_script( 'add-gfb-nutrition-label-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/nutritionLabel.js', '', null, array('jquery'));
-     wp_register_script( 'add-gfb-html2canvas-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/html2canvas.js', '', null, '');
-     wp_register_style( 'add-gfb-nutrition-label-sub-css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/nutritionLabel.css','','', 'screen' );
-     wp_register_script( 'add-gfb-custom-nutrition-label-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/gfb_nutrition_label.js', '', null, '');
+    wp_register_style( 'add-gfb-nutrition-label-sub-css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/nutritionLabel.css','','', 'screen' );
+    wp_register_style( 'add-gfb-nutrition-label-jui-css', plugin_dir_url(__FILE__) . 'includes/assets/css/jquery-ui-1.7.2.custom.css','','', 'screen');
 
-     wp_enqueue_script( 'add-gfb-nutrition-label-sub-js' );
-     wp_enqueue_script( 'add-gfb-html2canvas-sub-js' );
-     wp_enqueue_style( 'add-gfb-nutrition-label-sub-css' );
-     wp_enqueue_script( 'add-gfb-custom-nutrition-label-sub-js' );
+    wp_register_script( 'add-gfb-nutrition-label-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/nutritionLabel.js', '', null, array('jquery'));
+    wp_register_script( 'add-gfb-html2canvas-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/html2canvas.js', '', null, '');
+    wp_register_script( 'add-gfb-custom-nutrition-label-sub-js', plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/gfb_nutrition_label.js', '', null, '');
+    wp_register_script( 'add-gfb-jui-progress-bar-js',plugin_dir_url( __FILE__ ) . 'includes/assets/javascript/jquery.ui.progressbar.min.js', '', null, array('jquery-ui-core'));
+
+    wp_enqueue_style( 'add-gfb-nutrition-label-sub-css' );
+    wp_enqueue_style( 'add-gfb-nutrition-label-jui-css' );
+    wp_enqueue_script( 'add-gfb-nutrition-label-sub-js' );
+    wp_enqueue_script( 'add-gfb-html2canvas-sub-js' );
+    wp_enqueue_script( 'add-gfb-custom-nutrition-label-sub-js' );
+    wp_enqueue_script( 'add-gfb-jui-progress-bar-js' );
   }
 endif;
 
@@ -49,7 +54,7 @@ function nutrition_facts_label_pages() {
 }
 
 // nutrition_facts_label_form_view() displays the page content for the custom Nutrition Label menu
-function nutrition_facts_label_form_view() {?>
+function nutrition_facts_label_form_view() { ?>
   <h1 id="nutritiona-facts-label-main-title">
     <?php
       echo __('Nutrition Facts Label Generator', 'menu-gfb-nutrition-label');

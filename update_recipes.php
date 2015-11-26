@@ -23,8 +23,8 @@ function esc_quotes( $string ) {
 			$count = count( $post_ids );
 
 			$text_goback = ( ! empty( $_GET['goback'] ) ) ? sprintf( __( 'To go back to the previous page, <a href="%s">click here</a>.', 'gfb-nutrition-label-update' ), 'javascript:history.go(-1)' ) : '';
-			$text_failures = sprintf( __( 'All done! %1$s recipe(s) were successfully updated in %2$s seconds and there were %3$s failure(s). Try again, <a href="%4$s">click here</a>. %5$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", "' + recipes_update_errors + '", esc_url( wp_nonce_url( admin_url( 'tools.php?page=gfb-nutrition-label-settings-1&goback=1' ), 'gfb-nutrition-label-update' ) . '&ids=' ) . "' + recipes_update_failedlist + '", $text_goback );
-			$text_nofailures = sprintf( __( 'All done! %1$s recipe(s) were successfully updated in %2$s seconds and there were 0 failures. %3$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", $text_goback );
+			$text_failures = sprintf( __( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were %3$s failure(s). Try again, <a href="%4$s">click here</a>. %5$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", "' + recipes_update_errors + '", esc_url( wp_nonce_url( admin_url( 'tools.php?page=gfb-nutrition-label-settings-1&goback=1' ), 'gfb-nutrition-label-update' ) . '&ids=' ) . "' + recipes_update_failedlist + '", $text_goback );
+			$text_nofailures = sprintf( __( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were 0 failures. %3$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", $text_goback );
 		?>
 
 
@@ -102,7 +102,7 @@ function esc_quotes( $string ) {
 					}
 				}
 
-				// Called when all nutrition data for recipes have been updated. Shows the results and cleans up.
+				// Called when all nutrition data for recipes updated. Shows the results and cleans up.
 				function GFBNutritionLabelFinal() {
 					recipes_update_timeend = new Date().getTime();
 					recipes_update_totaltime = Math.round( ( recipes_update_timeend - recipes_update_timestart ) / 1000 );

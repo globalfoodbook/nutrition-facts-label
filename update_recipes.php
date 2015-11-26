@@ -10,14 +10,17 @@ function esc_quotes( $string ) {
 		<?php
 		// When the button is clicked
 		if(!empty($_POST['gfb-nutrition-label-update']) || !empty($_REQUEST['ids'])) {
-			if (empty($_GET['ids'])){
-			$args = array(
-				'post_type' => 'recipe',
-				'post_status' => 'publish'
-			);
-			$query = new WP_Query($args);
-			// $num_pages = $query->max_num_pages;
-			$post_ids = wp_list_pluck( $query->posts, 'ID' );
+			if(empty($_GET['ids'])){
+				/*$args = array(
+					'post_type' => 'recipe',
+					'post_status' => 'publish'
+				);
+				$query = new WP_Query($args);
+				$num_pages = $query->max_num_pages;
+				$post_ids = wp_list_pluck( $query->posts, 'ID' );*/
+			global $wpdb;
+			$sql = "SELECT ID FROM $wpdb->posts WHERE post_type = 'recipe' AND post_status = 'publish' ORDER BY post_date DESC";
+			$post_ids = wp_list_pluck($wpdb->get_results($sql), 'ID');
 		} else {
 			$post_ids = array(preg_replace( '/^,/', '', $_GET['ids']));
 		}

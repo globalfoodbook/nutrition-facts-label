@@ -4,8 +4,8 @@ Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugi
 Requires at least: 3.0.1
 Tested up to: 4.2.2
 Stable tag: 1
-License: MIT License
-License URI: http://opensource.org/licenses/MIT
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides food bloggers the ability to add nutrition facts label to their recipe post(s), with nutritive insights, short-codes and general update facility.
 

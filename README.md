@@ -53,7 +53,7 @@ Then press the "Go" button to generate label.
 
 ## Installation
 
-1. Upload /mailchimp-woothemes-subscribe to the /wp-content/plugins directory
+1. Upload /nutrition-facts-label to the /wp-content/plugins directory
 2. Activate the plugin through the Plugins menu in WordPress
 
 ## Frequently Asked Questions
@@ -92,7 +92,7 @@ Then press the "Go" button.
 
 If you would like to contribute to our suite of plugins, head on over to [Global Food Book Labs](https://github.com/globalfoodbook). Feel free to fork and contribute back.
 
-1. Fork it (https://github.com/globalfoodbook/mailchimp-foodcook-subscribe)
+1. Fork it (https://github.com/globalfoodbook/nutrition-facts-label)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -109,9 +109,9 @@ If you would like to contribute to our suite of plugins, head on over to [Global
 
 1. Clone this repo
 
-          `git clone git@github.com:globalfoodbook/mailchimp-foodcook-subscribe.git`
+          `git clone git@github.com:globalfoodbook/nutrition-facts-label.git`
 
-2. cd path/to/mailchimp-foodcook-subscribe
+2. cd path/to/nutrition-facts-label
 3. vim .git/config
 4. Add the code below:
 

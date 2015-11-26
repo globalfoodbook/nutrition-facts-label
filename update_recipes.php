@@ -22,7 +22,7 @@ function esc_quotes( $string ) {
 			$sql = "SELECT ID FROM $wpdb->posts WHERE post_type = 'recipe' AND post_status = 'publish' ORDER BY post_date DESC";
 			$post_ids = wp_list_pluck($wpdb->get_results($sql), 'ID');
 		} else {
-			$post_ids = explode(',',preg_replace( '/^,/', '', $_GET['ids']));
+			$post_ids = explode(',', preg_replace( '/^,/', '', $_GET['ids']));
 		}
 		$ids = implode( ',', $post_ids);
 
@@ -34,7 +34,6 @@ function esc_quotes( $string ) {
 		$text_failures = sprintf(__( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were %3$s failure(s). Try again, <a href="%4$s">click here</a>. %5$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", "' + recipes_update_errors + '", esc_url( wp_nonce_url( admin_url( 'admin.php?page=gfb-nutrition-label-settings-1&goback=1' ), 'gfb-nutrition-label-update' ) . '&ids=' ) . "' + recipes_update_failedlist + '", $text_goback );
 		$text_nofailures = sprintf(__( 'All done! %1$s recipe(s) successfully updated in %2$s seconds and there were 0 failures. %3$s', 'gfb-nutrition-label-update' ), "' + recipes_update_successes + '", "' + recipes_update_totaltime + '", $text_goback );
 	?>
-
 
 		<noscript><p><em><?php _e( 'You must enable Javascript in order to proceed!', 'gfb-nutrition-label-update' ) ?></em></p></noscript>
 
@@ -87,7 +86,7 @@ function esc_quotes( $string ) {
 				// Clear out the empty list element that's there for HTML validation purposes
 				$("#gfb-nutrition-update-debuglist li").remove();
 
-				// Called after each resize. Updates debug information and the progress bar.
+				// Called after each update. Update debug information and the progress bar.
 				function GFBNutritionLabelStatus( id, success, response ) {
 					$("#gfb-nutrition-update-bar").progressbar( "value", ( recipes_update_count / recipes_update_total ) * 100 );
 					$("#gfb-nutrition-update-bar-percent").html( Math.round( ( recipes_update_count / recipes_update_total ) * 1000 ) / 10 + "%" );
@@ -96,16 +95,16 @@ function esc_quotes( $string ) {
 					if ( success ) {
 						recipes_update_successes = recipes_update_successes + 1;
 						$("#gfb-nutrition-update-debug-successcount").html(recipes_update_successes);
-						$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> "+response.message+"</li>");
+						$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> <span style=color:green;font-weight:bold;>"+response.message+"</span></li>");
 					} else {
 						recipes_update_errors = recipes_update_errors + 1;
 						recipes_update_failedlist = recipes_update_failedlist + ',' + id;
 						$("#gfb-nutrition-update-debug-failurecount").html(recipes_update_errors);
 						if(response.error == false) {
-							$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> "+response.message+"</li>");
+							$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + response.url + "' target='_blank'>"+response.post_title+"</a> <span style=color:red;font-weight:bold;>"+response.message+"</span></li>");
 						} else {
 							var post_url = site_url +"?p=" +id
-							$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + post_url + "' target='_blank'>"+response.error+"</a> "+response.message+"</li>");
+							$("#gfb-nutrition-update-debuglist").append("<li> <a href='" + post_url + "' target='_blank'>"+response.error+"</a> <span style=color:red;font-weight:bold;>"+response.message+"</span></li>");
 						}
 					}
 				}

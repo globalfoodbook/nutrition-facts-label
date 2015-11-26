@@ -160,28 +160,27 @@ function esc_quotes( $string ) {
 					});
 				}
 
+				function compose(id, response) {
+					try {
+						response = JSON.parse(response);
+						// console.log("response", response);
+						// console.log("status", response.success);
+					} catch(e) {
+						// console.log("New object: ", response);
+						if(!(typeof response.status === "undefined")) {
+							status     = response.status +" "+ response.statusText
+						}
+						response = new Object;
+						response.success = false;
+						response.error = true
+						response.url = site_url+"?p="+id
+						response.post_title = "<?php printf(esc_js(__( 'Request terminated: (ID %s). Could be server error/downtime, network problems or error with your ingredients listing.', 'gfb-nutrition-label-update')), '" + id + "'); ?>";
+						response.message = (status == null) ? 'Update unsuccessful.' : 'Update unsuccessful. '+status;
+				}
+					return response;
+				}
 				UpdateNutritionFacts( recipes_update_recipes.shift() );
 			});
-
-			function compose(id, response) {
-				try {
-					response = JSON.parse(response);
-					// console.log("response", response);
-					// console.log("status", response.success);
-				} catch(e) {
-					// console.log("New object: ", response);
-					if(!(typeof response.status === "undefined")) {
-						status     = response.status +" "+ response.statusText
-					}
-					response = new Object;
-					response.success = false;
-					response.error = true
-					response.url = site_url+"?p="+id
-					response.post_title = "<?php printf(esc_js(__( 'Request terminated: (ID %s). Could be server error/downtime, network problems or error with your ingredients listing.', 'gfb-nutrition-label-update')), '" + id + "'); ?>";
-					response.message = (status == null) ? 'Update unsuccessful.' : 'Update unsuccessful. '+status;
-			}
-				return response;
-			}
 		// ]]>
 		</script>
 <?php } else { ?>

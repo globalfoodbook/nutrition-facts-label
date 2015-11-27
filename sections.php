@@ -5,8 +5,9 @@
     $readonly = 'readonly';
     $ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
   }
+
+  echo $message;
 ?>
-<?php echo $message;?>
 <div>
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='post' action='#'>

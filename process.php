@@ -1,7 +1,7 @@
 <?php
 define("NUT_API", "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=");
 define(C_URL, admin_url('admin-ajax.php'));
-// define(C_URL, plugin_dir_url( __FILE__ )."process.php");
+define(META_KEY, "gfb_recipe_meta_nutrition_facts");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["ingredients"])) {
@@ -18,7 +18,7 @@ function nutrition_request(){
     if (!empty($_GET["ingredients"])) {
       $nutrition_facts =  process_request($_GET["ingredients"]);
       global $post;
-      update_post_meta($post->ID , 'gfb_recipe_meta_nutrition_facts', $nutrition_facts);
+      update_post_meta($post->ID , META_KEY, $nutrition_facts);
       echo $nutrition_facts;
     }
   } else {

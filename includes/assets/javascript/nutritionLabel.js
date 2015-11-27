@@ -422,8 +422,6 @@
 		//if the text box for the unit quantity is shown
 		if ($settings.showServingUnitQuantityTextbox){
 			//increase the unit quantity by clicking the up arrow
-			console.log("Element: ", $elem);
-			console.log("Element ID: ", $elem.attr('id'));
 			$('#'+$elem.attr('id')).on('click', '.unitQuantityUp', function(e){
 				e.preventDefault();
 				$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );

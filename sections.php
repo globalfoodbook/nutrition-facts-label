@@ -1,6 +1,6 @@
 <?php
   global $post;
-  if(!empty($post)) {
+  if(!empty($post) && $post->post_type == 'recipe') {
     $readonly = 'readonly';
     $ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
   }

@@ -25,8 +25,40 @@ GFBNutritionLabel.prototype.generateImage = function(){
   });
 }
 
+GFBNutritionLabel.prototype.get = function(ingredients, url){
+  var path = url+"?action=nutrition_request&ingredients="+ingredients,
+  xmlhttp
+
+  if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+   xmlhttp=new XMLHttpRequest();
+  } else {// code for IE6, IE5
+   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xmlhttp.onreadystatechange = function(){
+   if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+     {
+      var settings = {
+          "showServingUnitQuantity":true,
+          "showPolyFat":true,
+          "showMonoFat":true,
+          // "showDisclaimer" : true,
+          "itemName": "",
+          "ingredientList": ingredients
+        };
+        jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, JSON.parse(xmlhttp.responseText)));
+     }
+   }
+  //  console.log("url: ", path);
+  xmlhttp.open("GET",path,true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send();
+}
+
 GFBNutritionLabel.prototype.submitForm = function() {
-  var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value;
+  var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value,
+  url = document.getElementById("gfb-nutrition-label-url").value,
+  ingredients
 
   if (contentOfTextArea.length <= 1) {
     alert("Please add your ingredients before submitting this form.")
@@ -35,7 +67,9 @@ GFBNutritionLabel.prototype.submitForm = function() {
     alert("Please remove exclammation mark (!) from your ingredients listing.")
     return false;
   } else {
-    document.forms['gfb-nutrition-label-form'].submit();
+    ingredients = contentOfTextArea.split("\n").join(",").trim();
+    this.get(ingredients, url);
+    // document.forms['gfb-nutrition-label-form'].submit();
   }
 }
 gfbnutritionlabel = new GFBNutritionLabel();

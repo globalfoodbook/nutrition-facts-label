@@ -28,7 +28,9 @@ GFBNutritionLabel.prototype.generateImage = function(){
 GFBNutritionLabel.prototype.get = function(ingredients, url){
   var path = url+"?action=nutrition_request&ingredients="+ingredients,
   loader = document.getElementById("gfb-nutrition-label-loader"),
-  xmlhttp
+  errorMsg = "An error has occured. Please verify that you ingredient(s) are correctly entered line by line.",
+  xmlhttp,
+  response
 
   loader.style.display = "inline";
 
@@ -39,21 +41,27 @@ GFBNutritionLabel.prototype.get = function(ingredients, url){
   }
 
   xmlhttp.onreadystatechange = function(){
-   if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-     {
-      var settings = {
-          "showServingUnitQuantity":true,
-          "showPolyFat":true,
-          "showMonoFat":true,
-          // "showDisclaimer" : true,
-          "itemName": "",
-          "ingredientList": ingredients
-        };
-        jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, JSON.parse(xmlhttp.responseText)));
-     } else {
-       alert("An error has occured. Please verify that you ingredient(s) are correctly entered line by line.");
-     }
-    loader.style.display = "none";
+    if (xmlhttp.readyState == 4){
+      if(xmlhttp.status == 200) {
+        var settings = {
+            "showServingUnitQuantity":true,
+            "showPolyFat":true,
+            "showMonoFat":true,
+            // "showDisclaimer" : true,
+            "itemName": "",
+            "ingredientList": ingredients
+          };
+        try {
+          response = JSON.parse(xmlhttp.responseText);
+        } catch(error) {
+          alert(errorMsg + "\n" + error);
+        }
+        jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, response));
+      } else {
+        alert(errorMsg);
+      }
+      loader.style.display = "none";
+    }
    }
   //  console.log("url: ", path);
   xmlhttp.open("GET",path,true);

@@ -12,6 +12,8 @@ This plugin provides food bloggers the ability to add nutrition facts label to t
 ## Description
 This plugin provides food bloggers the ability to add nutrition facts label to their recipe post(s), with nutritive insights, short-codes and general update facility.
 
+Big thanks to the guys at nutritionix for sharing their [javascript nutrition label](https://github.com/nutritionix/nutrition-label) which we have tweaked an used here.  
+
 This plugin has been derived from our code used on  [www.globalfoodbook.com](http://www.globalfoodbook.com). It is part of our drive to contribute back to the awesome Wordpress community.
 
 This plugin will work best on blogs that use food-cook or woo themes.

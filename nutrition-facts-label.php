@@ -48,6 +48,7 @@ function nutrition_facts_label_pages() {
 function nutrition_facts_label_form_view() {?>
   <h1>
     <?php echo __('Nutrition Facts Label Generator', 'menu-gfb-nutrition-label') ?>
+    <img src="<?php echo plugin_dir_url( __FILE__ ) . 'includes/assets/images/beta.png' ?>" />
   </h1>
   <?php
     require_once 'form.php';

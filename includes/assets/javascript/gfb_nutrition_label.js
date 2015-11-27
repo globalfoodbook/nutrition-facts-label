@@ -43,20 +43,20 @@ GFBNutritionLabel.prototype.get = function(ingredients, url){
   xmlhttp.onreadystatechange = function(){
     if (xmlhttp.readyState == 4){
       if(xmlhttp.status == 200) {
-        var settings = {
-            "showServingUnitQuantity":true,
-            "showPolyFat":true,
-            "showMonoFat":true,
-            // "showDisclaimer" : true,
-            "itemName": "",
-            "ingredientList": ingredients
-          };
         try {
+          var settings = {
+              "showServingUnitQuantity":true,
+              "showPolyFat":true,
+              "showMonoFat":true,
+              // "showDisclaimer" : true,
+              "itemName": "",
+              "ingredientList": ingredients
+            };
           response = JSON.parse(xmlhttp.responseText);
+          jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, response));
         } catch(error) {
           alert(errorMsg + "\n" + error);
         }
-        jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, response));
       } else {
         alert(errorMsg);
       }

@@ -1,12 +1,14 @@
 <?php
-global $post;
-$ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients'));
-// $ingredients = implode('\n\n',get_post_meta($post->ID, 'RECIPE_META_ingredients'));
+  global $post;
+  if(!empty($post)) {
+    $readonly = 'readonly';
+    $ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
+  }
 ?>
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='post' action='#'>
      <h4>Ingredients:</h4>
-     <p><textarea id="gfb-nutrition-label-textarea" name='ingredients' rows='12' cols='33'><?php echo $ingredients; ?></textarea></p>
+     <p><textarea id="gfb-nutrition-label-textarea" name='ingredients' rows='12' cols='33' <?php echo $readonly?>><?php echo $ingredients; ?></textarea></p>
      <p><input type='button' name='Submit' value='Generate Label' style="display: block; width: 140px; background: #4E9CAF; padding: 10px; text-align: center; border-color:transparent; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;" onclick="gfbnutritionlabel.submitForm()"/></p>
   </form>
 </div>

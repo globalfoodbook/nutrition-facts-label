@@ -1,12 +1,12 @@
 <?php
   global $post;
   if(!empty($post) && $post->post_type == 'recipe') {
-    $message = "The ingredients here are list in a  readonly text-box. They are sourced from the ingredient list in the recipe information section. Before generating this label make sure you have at least one ingredient and have saved or updated it first before generating a nutrition label.";
+    $message = "<b>NB:</b> <i>The ingredients here are list in a  readonly text-box. They are sourced from the ingredient list in the recipe information section. Before generating this label make sure you have at least one ingredient and have saved or updated it first before generating a nutrition label.</i>";
     $readonly = 'readonly';
     $ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
   }
 ?>
-<b>NB:</b> <i><?php echo $message;?></i>
+<?php echo $message;?>
 <div>
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='post' action='#'>

@@ -6,6 +6,7 @@ jQuery( document ).ready(function() {
     	"showPolyFat":true,
     	"showMonoFat":true,
       // "showDisclaimer" : true,
+      "showCalorieDiet": true,
       "itemName": "",
       "valueServingUnitQuantity": <?php echo (empty($serving) ? 1 : $serving)?>,
       "ingredientList":<?php echo json_encode(options($ingredients)); ?>

@@ -24,4 +24,14 @@ GFBNutritionLabel.prototype.generateImage = function(){
     }
   });
 }
+
+GFBNutritionLabel.prototype.checkForm = function() {
+  var contentOfTextArea = document.getElementById("gfb-nutrition-label-textarea").value;
+
+  if (contentOfTextArea.length <= 1) {
+    return false;
+  } else {
+    document.forms['gfb-nutrition-label-form'].submit();
+  }
+}
 gfbnutritionlabel = new GFBNutritionLabel();

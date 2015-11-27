@@ -3,26 +3,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["ingredients"])) {
     $ingredients = $_POST["ingredients"];
     $nutrition = process_request($ingredients);
-  //   $nutrition = json_encode(json_decode('{
-  //   "PolyFat": 6.883,
-  //   "MonoFat": 10.281,
-  //   "valueCalories": 1804,
-  //   "valueFatCalories": 185.82,
-  //   "valueTotalFat": 26.476,
-  //   "valueSatFat": 11.5,
-  //   "valueTransFat": 0.106,
-  //   "valueCholesterol": 335,
-  //   "valueSodium": 11399,
-  //   "valueTotalCarb": 301.90000000000003,
-  //   "valueFibers": 41.7,
-  //   "valueSugars": 13.620000000000001,
-  //   "valueProteins": 110,
-  //   "valueVitaminA": 11760,
-  //   "valueVitaminC": 44.7,
-  //   "valueCalcium": 1465,
-  //   "valueIron": 53.279999999999994,
-  //   "valuePotassium": 3770
-  // }'));
   }
 }
 

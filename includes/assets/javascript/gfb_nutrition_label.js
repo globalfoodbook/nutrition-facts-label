@@ -27,7 +27,10 @@ GFBNutritionLabel.prototype.generateImage = function(){
 
 GFBNutritionLabel.prototype.get = function(ingredients, url){
   var path = url+"?action=nutrition_request&ingredients="+ingredients,
+  loader = document.getElementById("gfb-nutrition-label-loader"),
   xmlhttp
+
+  loader.style.display = "inline";
 
   if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
    xmlhttp=new XMLHttpRequest();
@@ -47,6 +50,7 @@ GFBNutritionLabel.prototype.get = function(ingredients, url){
           "ingredientList": ingredients
         };
         jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, JSON.parse(xmlhttp.responseText)));
+        loader.style.display = "none";
      }
    }
   //  console.log("url: ", path);

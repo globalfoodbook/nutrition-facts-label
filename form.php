@@ -17,6 +17,9 @@
 </style>
 <div class='wrap'>
   <div class='gfb-nutrition-label-section'>
-    <?php require_once 'sections.php'; ?>
+    <img id="gfb-nutrition-label-loader" src="<?php echo plugin_dir_url( __FILE__ ) .'includes/assets/images/load.gif'?>" style="display:none"/>
+    <div>
+      <?php require_once 'sections.php'; ?>
+    </div>
   </div>
 </div>

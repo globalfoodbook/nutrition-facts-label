@@ -1,3 +1,8 @@
+<?php
+global $post;
+$ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients'));
+// $ingredients = implode('\n\n',get_post_meta($post->ID, 'RECIPE_META_ingredients'));
+?>
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='post' action='#'>
      <h4>Ingredients:</h4>

@@ -28,13 +28,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function process_request($ingredients){
   $api = "http://nuts.globalfoodbook.net/v1/nutrition?ingredients=";
-  $url = $api.urlencode(implode(",", explode("\n", trim($ingredients))));
+  $url = $api.urlencode(options($ingredients));
 
   $context = stream_context_create(array('http'=>array('method'=>"GET")));
   $json = file_get_contents($url, 0, $context);
   $response = json_encode(json_decode($json, true), JSON_PRETTY_PRINT);
   return $response;
   // return $json;
+}
+
+function options($ingredients){
+  return implode(",", explode("\n", trim($ingredients)));
 }
 ?>
 <style media="screen">
@@ -84,10 +88,12 @@ function process_request($ingredients){
 <script type="text/javascript">
 jQuery( document ).ready(function() {
   var settings = {
-  	"showServingUnitQuantity":false,
-  	"showPolyFat":false,
-  	"showMonoFat":false
-  };
+    	"showServingUnitQuantity":true,
+    	"showPolyFat":true,
+    	"showMonoFat":true,
+      "itemName": "",
+      "ingredientList":<?php echo json_encode(options($ingredients)); ?>
+    };
   <?php if(!empty($nutrition)) {?>
     var response = <?php echo $nutrition; ?>
     // console.log("Merged: ",jQuery.extend( settings, response ))

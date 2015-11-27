@@ -6,7 +6,7 @@
 /*
 Plugin Name: Nutrition Facts Label Plugin
 Plugin URI: http://wordpress.org/extend/plugins/nutrition-facts-label/
-Description: This plugin is an extract from <a href='http://globalfoodbook.com' target='_blank'>globalfoodbook.com</a>. This plugin generates a nutrition label, providing insight on recipe contents.
+Description: This plugin is an extract from <a href='http://globalfoodbook.com' target='_blank'>globalfoodbook.com</a>. This plugin generates a nutrition label, providing nutritive insight on ingredients or a recipe's contents.
 Author: Ikenna N. Okpala
 Version: 1.0
 Author URI: http://ikennaokpala.com/

@@ -9,7 +9,7 @@ add_action( 'wp_ajax_nopriv_nutrition_request', 'nutrition_request' );
 
 function nutrition_request(){
   if($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (!empty($_GET["ingredients"] && !empty($_GET["post_id"]))) {
+    if (!empty($_GET["ingredients"]) && !empty($_GET["post_id"])) {
       $post_id = $_GET["post_id"];
       $nutrition_facts =  process_request($_GET["ingredients"]);
       if (!add_post_meta($post_id, META_KEY, $nutrition_facts, true)) {

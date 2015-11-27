@@ -30,10 +30,21 @@
         <div id="nutrition-label"> </div>
       </div>
     </div>
+    <div class='section3'>
+      <textarea id="gfb-nut-textarea" rows='12' cols='33' readonly>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript" src="http://raw.githubusercontent.com/globalfoodbook/nutrition-facts-label/develop/includes/assets/javascript/nutritionLabel-min.js"></script>
+      <link rel="stylesheet" href="http://raw.githubusercontent.com/globalfoodbook/nutrition-facts-label/develop/includes/assets/css/nutritionLabel-min.css" type="text/css" media="all">
+      </textarea>
+    </div>
   </div>
 </div>
 <script type="text/javascript">
 jQuery( document ).ready(function() {
   jQuery('#nutrition-label').nutritionLabel();
+  code = jQuery.trim(jQuery('#gfb-nut-textarea').text()+jQuery('#nutrition-label').clone().html());
+  jQuery('#gfb-nut-textarea').val(code);
+  // jQuery('#nutrition-label').clone().appendTo('#gfb-nut-textarea');
 });
+
 </script>

@@ -37,7 +37,7 @@ But based on the food-cook recipe page layout your options may appear limited, h
 ```
   [embed_nutrition_label]
 ```
-
+### How to Video
 [![Nutrition Facts Label Wordpress Plugin Video](http://img.youtube.com/vi/oM1LoVSacss/0.jpg)](https://www.youtube.com/watch?v=oM1LoVSacss)
 
 This plugin provides food bloggers with the ability to add a nutrition facts label to their recipe post(s).

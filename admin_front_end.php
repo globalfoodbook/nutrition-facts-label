@@ -35,8 +35,8 @@ jQuery( document ).ready(function() {
   <?php } else { ?>
     jQuery('#nutrition-label').nutritionLabel()
   <?php } ?>
-  code = jQuery.trim(jQuery('#gfb-nut-textarea').text()+jQuery('#nutrition-label').clone().html());
-  jQuery('#gfb-nut-textarea').val(code);
+  // code = jQuery.trim(jQuery('#gfb-nut-textarea').text()+jQuery('#nutrition-label').clone().html());
+  // jQuery('#gfb-nut-textarea').val(code);
   // jQuery('#nutrition-label').clone().appendTo('#gfb-nut-textarea');
 });
 </script>

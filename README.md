@@ -7,39 +7,53 @@ Stable tag: 1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin provides food bloggers the ability to add nutrition facts label to their recipe post(s), with nutritive insights, short-codes and general update facility.
+This plugin provides food bloggers with the ability to add nutrition facts label to their recipe post(s).
 
 ## Description
-This plugin provides food bloggers the ability to add nutrition facts label to their recipe post(s), with nutritive insights, short-codes and general update facility.
+
+Our motivation for releasing this plugin is based on a forum discussion on the food-cook theme support site.
+
+We felt that we already had some code that could serve as a basis for producing this plugin, other food bloggers could benefit and possibly improve on.
+
+This plugin will work best on blogs that use [food-cook](http://themeforest.net/item/food-cook-multipurpose-food-recipe-wp-theme/4915630) theme.
+
+For food blogs that are not based on the food-cook theme, It is possible to create a [custom post type](https://wordpress.org/plugins/custom-post-type-ui/) called "recipe" and an ingredients post_meta entry with key "RECIPE_META_ingredients".
+
+We strongly recommended taking this route or using this plugin under the guidance of a Wordpress developer.
+
+From a more technical side, In order to generate a nutrition facts label, you can either generate an image or generate a post_meta key (gfb_recipe_meta_nutrition_facts) that holds JSON data (for each recipe) which is used to generate a nutrition label.
+
+This plugin also includes a meta box within the recipe post edit page in the admin area, which automatically reads the post_meta entry with key "RECIPE_META_ingredients" which mainly contains your ingredients list and uses that to generate the nutrition label.
+
+In order to automatically display a nutrition label on the every recipe, your Wordpress developer should add this line of code to the best possible place.
+
+```php
+  <?php echo do_shortcode( '[embed_nutrition_label]' ) ?>
+```
+It is also possible to embed this as a short-code from the text editor.
+
+But based on the food-cook recipe page layout your options may appear limited, hence why it is best that a Wordpress developer helps out here.
+
+```php
+  [embed_nutrition_label]
+```
+
+This plugin provides food bloggers with the ability to add a nutrition facts label to their recipe post(s).
+
+This plugin provides image download option or short-codes as possible ways of sharing nutritive insights. It also provides an update facility that adds a nutrition facts label to already existing recipe posts.
 
 Big thanks to the guys at nutritionix for sharing their [javascript nutrition label](https://github.com/nutritionix/nutrition-label) which we have tweaked and used here.  
 
-This plugin has been derived from our code used on  [www.globalfoodbook.com](http://www.globalfoodbook.com). It is part of our drive to contribute back to the awesome Wordpress community.
+We at [www.globalfoodbook.com](http://www.globalfoodbook.com) are open source and agile proponents. We have open sourced this plugin on [github](https://github.com/globalfoodbook/nutrition-facts-label) and will continue to improve this.
 
-This plugin will work best on blogs that use food-cook or woo themes.
+We appreciate the help we have received from using other plugins and would like to contribute back to this awesome Wordpress community at every chance possible.
 
-We strongly advise using it under guidance of a Wordpress developer.
+At the moment we are working on improving our algorithms on the backend and would like it if you could join us.
 
-Our motivation for releasing this plugin is based on a forum discussion on the food-cook theme site and we felt that we already had some code that could serve as a basis for others to benefit and possibly improve on.
+We would love to hear from you on ways this can be improved, give us a shout via the our website or via email (we [at] globalfoodbook.com).
 
-It is possible to create a custom post type called "recipe" and ingredients post_meta entry with key "RECIPE_META_ingredients". We strongly advise that you do this under the guidance of a Wordpress developer.
+Thanks  
 
-In order to generate the plugin, you can either generate an image or generate a post_meta key that holds a JSON data which could be used to generate the nutrition label.
-
-The plugin also includes a meta box within the recipe post page in the admin area.
-
-In order to automatically show the recipe label on the every recipe, your Wordpress developer should add this line of code to the best possible place.
-
-```
-  <?php echo do_shortcode( '[embed_nutrition_label]' ) ?>
-```
-
-It is also possible to embed this as a as a shortcode from the text editor.
-
-
-```
-[embed_nutrition_label]
-```
 ### How to Use this Nutrition Label?
 Login into your Wordpress account.
 Scroll down to the "Ingredients Section" and list the Ingredients.

@@ -1,4 +1,4 @@
-# Nutrition Facts Label
+=== Nutrition Facts Labe===
 Contributors: (kengimel)
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
 Requires at least: 3.0.1
@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides food bloggers with the ability to add nutrition facts label to their recipe post(s).
 
-## Description
+== Description ==
 
 Our motivation for releasing this plugin is based on a forum discussion on the food-cook theme support site.
 
@@ -37,14 +37,15 @@ But based on the food-cook recipe page layout your options may appear limited, h
 ```
   [embed_nutrition_label]
 ```
-### How to Video
-[![Nutrition Facts Label Wordpress Plugin Video](http://img.youtube.com/vi/oM1LoVSacss/0.jpg)](https://www.youtube.com/watch?v=oM1LoVSacss)
+= How to Video =
+
+https://www.youtube.com/watch?v=oM1LoVSacss
 
 This plugin provides food bloggers with the ability to add a nutrition facts label to their recipe post(s).
 
 This plugin provides image download option or short-codes as possible ways of sharing nutritive insights. It also provides an update facility that adds a nutrition facts label to already existing recipe posts.
 
-Big thanks to the guys at nutritionix for sharing their [javascript nutrition label](https://github.com/nutritionix/nutrition-label) which we have tweaked and used here.  
+Big thanks to the guys at nutritionix for sharing their [javascript nutrition label](https://github.com/nutritionix/nutrition-label) which we have tweaked and used here.
 
 We at [www.globalfoodbook.com](http://www.globalfoodbook.com) are open source and agile proponents. We have open sourced this plugin on [github](https://github.com/globalfoodbook/nutrition-facts-label) and will continue to improve this.
 
@@ -54,59 +55,59 @@ At the moment we are working on improving our algorithms on the backend and woul
 
 We would love to hear from you on ways this can be improved, give us a shout via the our website or via email (we [at] globalfoodbook.com).
 
-Thanks  
+Thanks
 
-### How to Use this Nutrition Label?
+= How to Use this Nutrition Label? =
 Login into your Wordpress account.
 Scroll down to the "Ingredients Section" and list the Ingredients.
 Press "Generate Label" on the Nutrition Facts Label Generator.
 The nutrition facts are automatically generated for you.
 N:B List the ingredients individually including the quantities.
 
-### How to Include Nutrition Label on Existing Recipes?
+= How to Include Nutrition Label on Existing Recipes? =
 To include nutrition label on existing food recipes, simply press the "Go" button for automatic generation of the nutrition label.
 For any unsuccessful updates, make sure that the ingredients are placed line by line and in each line they are without commas or fullstops.
 Then press the "Go" button to generate label.
 
 
-## Installation
+== Installation ==
 
 1. Upload /nutrition-facts-label to the /wp-content/plugins directory
 2. Activate the plugin through the Plugins menu in WordPress
 
-## Frequently Asked Questions
+== Frequently Asked Questions ==
 
-### How do I use this Nutrition Label ?
+= How do I use this Nutrition Label ? =
 Login into your Wordpress account.
 Scroll down to the "Ingredients Section" and list the Ingredients.
 Press "Generate Label" on the Nutrition Facts Label Generator.
 The nutrition facts are automatically generated for you.
 N:B List the ingredients individually including the quantities.
 
-### How to Include Nutrition Label on Existing Recipes
+= How to Include Nutrition Label on Existing Recipes? =
 To include nutrition label on existing food recipes, simply press the "Go" button for automatic generation of the nutrition label.
 For the unsuccessful updates, make sure that the ingredients are placed line by line and in each line they are without commas or fullstops.
 Then press the "Go" button.
 
-## Screenshots
+== Screenshots ==
 
 1. Generate Nutrition Facts Label
 2. Update existing recipes.
 3. Sample on the recipe page.
 
-## Changelog
+== Changelog ==
 
-### 1.0
+= 1.0 =
 * Initial Release
 
-## Upgrade Notice
+== Upgrade Notice ==
 
-### 1
+= 1 =
 * Initial Release
 
-## Notes to developers
+== Notes to developers ==
 
-#### Contributing
+= Contributing =
 
 If you would like to contribute to our suite of plugins, head on over to [Global Food Book Labs](https://github.com/globalfoodbook). Feel free to fork and contribute back.
 
@@ -116,14 +117,14 @@ If you would like to contribute to our suite of plugins, head on over to [Global
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-#### Adding Screenshots to the Wordpress repo
+= Adding Screenshots to the Wordpress repo =
 
 1. Rename each screenshot for each step like this. For step 1 the screenshot is screenshot-1.png.
 2. The banner image is named as banner-772x250.png.
 3. Use an SVN client like smart svn or rapid svn etc to upload these images to the /assets folder.
 4. After this, commit and all will be picked up.
 
-#### Pushing plugin to Wordpress svn repo
+= Pushing plugin to Wordpress svn repo =
 
 1. Clone this repo
 

@@ -1,4 +1,4 @@
-=== Nutrition Facts Labe===
+=== Nutrition Facts Label ===
 Contributors: (kengimel)
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
 Requires at least: 3.0.1

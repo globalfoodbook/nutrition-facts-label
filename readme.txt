@@ -27,16 +27,18 @@ This plugin also includes a meta box within the recipe post edit page in the adm
 
 In order to automatically display a nutrition label on the every recipe, your Wordpress developer should add this line of code to the best possible place.
 
-```
+<pre><code>
   <?php echo do_shortcode( '[embed_nutrition_label]' ) ?>
-```
+</code></pre>
+
 It is also possible to embed this as a short-code from the text editor.
 
 But based on the food-cook recipe page layout your options may appear limited, hence why it is best that a Wordpress developer helps out here.
 
-```
+<pre><code>
   [embed_nutrition_label]
-```
+</code></pre>
+
 = How to Video =
 
 https://www.youtube.com/watch?v=oM1LoVSacss

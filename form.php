@@ -14,6 +14,10 @@
     display: inline-block !important;
     overflow: hidden;
   }
+  p{
+    font-weight: bold;
+    margin-left: 12px;
+  }
 </style>
 <div class='wrap'>
   <div class='gfb-nutrition-label-section'>

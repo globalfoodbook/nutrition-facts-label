@@ -180,6 +180,30 @@
 		showVitaminC : true,
 		showCalcium : true,
 		showIron : true,
+		showRibflavin : true,
+		showPhosphorous : true,
+		showBiotin : true,
+		showChromium : true,
+		showChloride : true,
+		showCopper : true,
+		showFolic : true,
+		showIodine : true,
+		showMagnesium : true,
+		showManganese : true,
+		showMolybdenum : true,
+		showNiacine : true,
+
+		showOmega : true,
+		showPantothenic : true,
+		showSelenium : true,
+		showSource : true,
+		showThiamine : true,
+		showVitaminB12 : true,
+		showVitaminB6 : true,
+		showVitaminD : true,
+		showVitaminE : true,
+		showVitaminK : true,
+		showZinc : true,
 
 		//to show the 'amount per serving' text
 		showAmountPerServing : true,
@@ -222,6 +246,30 @@
 		naVitaminC : false,
 		naCalcium : false,
 		naIron : false,
+		naPhosphorous: false,
+		naRibflavin: false,
+		naBiotin : false,
+		naChromium : false,
+		naChloride : false,
+		naCopper : false,
+		naFolic : false,
+		naIodine : false,
+		naMagnesium : false,
+		naManganese : false,
+		naMolybdenum : false,
+		naNiacine : false,
+
+		naOmega : false,
+		naPantothenic : false,
+		naSelenium : false,
+		naSource : false,
+		naThiamine : false,
+		naVitaminB12 : false,
+		naVitaminB6 : false,
+		naVitaminD : false,
+		naVitaminE : false,
+		naVitaminK : false,
+		naZinc : false,
 
 		//these are the default values for the nutrition info
 		valueServingWeightGrams : 0,
@@ -243,6 +291,30 @@
 		valueVitaminC : 0,
 		valueCalcium : 0,
 		valueIron : 0,
+		valuePhosphorous: 0,
+		valueRibflavin: 0,
+		valueBiotin : 0,
+		valueChromium : 0,
+		valueChloride : 0,
+		valueCopper : 0,
+		valueFolic : 0,
+		valueIodine : 0,
+		valueMagnesium : 0,
+		valueManganese : 0,
+		valueMolybdenum : 0,
+		valueNiacine : 0,
+
+		valueOmega : 0,
+		valuePantothenic : 0,
+		valueSelenium : 0,
+		valueSource : 0,
+		valueThiamine : 0,
+		valueVitaminB12 : 0,
+		valueVitaminB6 : 0,
+		valueVitaminD : 0,
+		valueVitaminE : 0,
+		valueVitaminK : 0,
+		valueZinc : 0,
 
 		//customizable units for the values
 		unitCalories : '',
@@ -262,6 +334,30 @@
 		unitVitaminC : '%',
 		unitCalcium : '%',
 		unitIron : '%',
+		unitPhosphorous: '%',
+		unitRibflavin: '%',
+		unitBiotin : '%',
+		unitChromium : '%',
+		unitChloride : '%',
+		unitCopper : '%',
+		unitFolic : '%',
+		unitIodine : '%',
+		unitMagnesium : '%',
+		unitManganese : '%',
+		unitMolybdenum : '%',
+		unitNiacine : '%',
+
+		unitOmega : '%',
+		unitPantothenic : '%',
+		unitSelenium : '%',
+		unitSource : '%',
+		unitThiamine : '%',
+		unitVitaminB12 : '%',
+		unitVitaminB6 : '%',
+		unitVitaminD : '%',
+		unitVitaminE : '%',
+		unitVitaminK : '%',
+		unitZinc : '%',
 
 		//these are the values for the optional calorie diet
 		valueCol1CalorieDiet : 2000,
@@ -282,7 +378,7 @@
 		//these text settings is so you can create nutrition labels in different languages or to simply change them to your need
 		textNutritionFacts : 'Nutrition Facts',
 		textDailyValues : 'Daily Value',
-		textServingSize : 'Serving Size:',
+		textServingSize : 'Serving Size',
 		textServingsPerContainer : 'Servings Per Container',
 		textAmountPerServing : 'Amount Per Serving',
 		textCalories : 'Calories',
@@ -300,11 +396,42 @@
 		textProteins : 'Protein',
 		textVitaminA : 'Vitamin A',
 		textVitaminC : 'Vitamin C',
+		textPhosphorous: 'Phosphorous',
+		textRibflavin: 'Riboflavin',
 		textCalcium : 'Calcium',
 		textIron : 'Iron',
+		textBiotin : 'Biotin',
+		textChromium : 'Chromium',
+		textChloride : 'Chloride',
+		textCopper : 'Copper',
+		textFolic : 'Folic Acid',
+		textIodine : 'Iodine',
+		textMagnesium : 'Magnesium',
+		textManganese : 'Manganese',
+		textMolybdenum : 'Molybdenum',
+		textNiacine : 'Niacine',
+		textOmega : 'Omega 3 Fat',
+		textPantothenic : 'Pantothenic Acid',
+		textSelenium : 'Selenium',
+		textSource : 'Source',
+		textThiamine : 'Thiamine',
+		textVitaminB12 : 'Vitamin B12',
+		textVitaminB6 : 'Vitamin B6',
+		textVitaminD : 'Vitamin D',
+		textVitaminE : 'Vitamin E',
+		textVitaminK : 'Vitamin K',
+		textZinc : 'Zinc',
 		ingredientList : 'None',
 		textPercentDailyPart1 : 'Percent Daily Values are based on a',
-		textPercentDailyPart2 : 'calorie diet'
+		textPercentDailyPart2 : 'calorie diet',
+
+		afterInit: null,
+
+		//these fields are only displayed if value > 0, no need to set showFIELD in false
+		extraFields: ['Phosphorous','Ribflavin','Biotin','Chromium','Chloride','Copper',
+			'Folic','Iodine','Magnesium','Manganese','Molybdenum','Niacine','Omega','Pantothenic',
+			'Selenium','Source','Thiamine','VitaminB12','VitaminB6','VitaminD','VitaminE',
+			'VitaminK','Zinc']
 	};
 
 
@@ -325,7 +452,10 @@
 			'dailyValueFiber','valueServingSize','valueServingWeightGrams','valueServingPerContainer','valueCalories',
 			'valueFatCalories','valueTotalFat','valueSatFat','valueTransFat','valuePolyFat','valueMonoFat','valueCholesterol',
 			'valueSodium','valueTotalCarb','valueFibers','valueSugars','valueProteins','valueVitaminA','valueVitaminC',
-			'valueCalcium','valueIron','valueCol1CalorieDiet','valueCol2CalorieDiet','valueCol1DietaryTotalFat',
+			'valueCalcium','valueIron','valuePhosphorous','valueRibflavin','valueBiotin','valueChromium','valueChloride','valueCopper',
+			'valueFolic','valueIodine','valueMagnesium','valueManganese','valueMolybdenum','valueNiacine','valueOmega','valuePantothenic',
+			'valueSelenium','valueSource','valueThiamine','valueVitaminB12','valueVitaminB6','valueVitaminD','valueVitaminE',
+			'valueVitaminK','valueZinc','valueCol1CalorieDiet','valueCol2CalorieDiet','valueCol1DietaryTotalFat',
 			'valueCol2DietaryTotalFat','valueCol1DietarySatFat','valueCol2DietarySatFat','valueCol1DietaryCholesterol',
 			'valueCol2DietaryCholesterol','valueCol1DietarySodium','valueCol2DietarySodium','valueCol1DietaryTotalCarb',
 			'valueCol2DietaryTotalCarb','valueCol1Dietary','valueCol2Dietary', 'valueServingUnitQuantity',
@@ -351,7 +481,10 @@
 		var nutritionIndex = [
 			'valueCalories','valueFatCalories','valueTotalFat','valueSatFat','valueTransFat','valuePolyFat','valueMonoFat',
 			'valueCholesterol','valueSodium','valueTotalCarb','valueFibers','valueSugars','valueProteins','valueVitaminA',
-			'valueVitaminC','valueCalcium','valueIron'
+			'valueVitaminC','valueCalcium','valueIron','valuePhosphorous','valueRibflavin','valueBiotin','valueChromium',
+			'valueChloride','valueCopper','valueFolic','valueIodine','valueMagnesium','valueManganese','valueMolybdenum',
+			'valueNiacine','valueOmega','valuePantothenic','valueSelenium','valueSource','valueThiamine','valueVitaminB12',
+			'valueVitaminB6','valueVitaminD','valueVitaminE','valueVitaminK','valueZinc'
 		];
 
 		$.each(settings, function(index, value){
@@ -363,9 +496,7 @@
 			}
 		});
 
-		if (parseFloat(settings['valueServingUnitQuantity']) == 0)
-			settings['valueServingPerContainer'] = 0;
-		else if (!isNaN(settings['valueServingPerContainer']) && settings['valueServingPerContainer'] != undefined)
+		if (!isNaN(settings['valueServingPerContainer']) && settings['valueServingPerContainer'] != undefined)
 			settings['valueServingPerContainer'] = parseFloat(settings.totalContainerQuantity) / parseFloat(settings['valueServingUnitQuantity']);
 
 		return settings;
@@ -425,7 +556,6 @@
 			$('#'+$elem.attr('id')).on('click', '.unitQuantityUp', function(e){
 				e.preventDefault();
 				$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );
-				$settingsHolder.totalContainerQuantity = $settings.totalContainerQuantity;
 				$settingsHolder.originalServingUnitQuantity = $settings.originalServingUnitQuantity;
 				$settingsHolder.nutritionValueMultiplier = $settingsHolder.valueServingUnitQuantity <= 0 ? 1 : 1 / $settingsHolder.valueServingUnitQuantity;
 				changeQuantityByArrow($(this), 1, $settingsHolder, nutritionLabel, $elem);
@@ -452,7 +582,7 @@
 			});
 
 			//the textbox unit quantity value is changed
-			$('#'+$elem.attr('id')).on('keydown','.unitQuantityBox', function(e){
+			$('#'+$elem.attr('id')).on('keydown', '.unitQuantityBox', function(e){
 				if (e.keyCode == 13){
 					e.preventDefault();
 					$settingsHolder = $.extend( {}, $.fn.nutritionLabel.defaultSettings, settings || {} );
@@ -466,6 +596,8 @@
 
 		//store the object for later reference
 		$elem.data('_nutritionLabel', nutritionLabel);
+
+		typeof $settings.afterInit === 'function' && $settings.afterInit($elem);
 	}
 
 
@@ -796,6 +928,33 @@
 				$this.settings.showVitaminC = $this.settings.naVitaminC ? false : $this.settings.showVitaminC;
 				$this.settings.showCalcium = $this.settings.naCalcium ? false : $this.settings.showCalcium;
 				$this.settings.showIron = $this.settings.naIron ? false : $this.settings.showIron;
+				$this.settings.showRibflavin = $this.settings.naRibflavin ? false : $this.settings.showRibflavin;
+				$this.settings.showPhosphorous = $this.settings.naPhosphorous ? false : $this.settings.showPhosphorous;
+				$this.settings.showBiotin = $this.settings.naBiotin ? false : $this.settings.showBiotin;
+				$this.settings.showChromium = $this.settings.naChromium ? false : $this.settings.showChromium;
+				$this.settings.showChloride = $this.settings.naChloride ? false : $this.settings.showChloride;
+				$this.settings.showFolic = $this.settings.naFolic ? false : $this.settings.showFolic;
+				$this.settings.showIodine = $this.settings.naIodine ? false : $this.settings.showIodine;
+				$this.settings.showMagnesium = $this.settings.naMagnesium ? false : $this.settings.showMagnesium;
+				$this.settings.showManganese = $this.settings.naManganese ? false : $this.settings.showManganese;
+				$this.settings.showMolybdenum = $this.settings.naMolybdenum ? false : $this.settings.showMolybdenum;
+				$this.settings.showNiacine = $this.settings.naNiacine ? false : $this.settings.showNiacine;
+				$this.settings.showOmega = $this.settings.naOmega ? false : $this.settings.showOmega;
+				$this.settings.showPantothenic = $this.settings.naPantothenic ? false : $this.settings.showPantothenic;
+				$this.settings.showSelenium = $this.settings.naSelenium ? false : $this.settings.showSelenium;
+				$this.settings.showSource = $this.settings.naSource ? false : $this.settings.showSource;
+				$this.settings.showThiamine = $this.settings.naThiamine ? false : $this.settings.showThiamine;
+				$this.settings.showVitaminB12 = $this.settings.naVitaminB12 ? false : $this.settings.showVitaminB12;
+				$this.settings.showVitaminB6 = $this.settings.naVitaminB6 ? false : $this.settings.showVitaminB6;
+				$this.settings.showVitaminD = $this.settings.naVitaminD ? false : $this.settings.showVitaminD;
+				$this.settings.showVitaminE = $this.settings.naVitaminE ? false : $this.settings.showVitaminE;
+				$this.settings.showZinc = $this.settings.naZinc ? false : $this.settings.showZinc;
+				$this.settings.showVitaminK = $this.settings.naVitaminK ? false : $this.settings.showVitaminK;
+			}
+
+			for(var i = 0, l = $this.settings.extraFields.length; i < l; i++) {
+				var extra = $this.settings.extraFields[i];
+				$this.settings['show'+extra] = !!$this.settings['value'+extra];
 			}
 
 			//initializing the tab variables
@@ -827,8 +986,9 @@
 			else
 				nutritionLabel += '<div class="nutritionLabel" style="' + borderCSS + ' width: '+ $this.settings.widthCustom + ';">\n';
 
+      nutritionLabel += tab1 + '<div id="n-label-title" class="n-label-title" style="line-height: .83em;	font-size: 2.7em;	padding-bottom: 4px;	font-family: \'Archivo Black\';	white-space: nowrap;	letter-spacing: -2px;	margin: 0px;">' + $this.settings.textNutritionFacts + '</div>\n';
 
-				nutritionLabel += tab1 + '<div id="n-label-title" class="n-label-title" style="line-height: .83em;	font-size: 2.7em;	padding-bottom: 4px;	font-family: \'Archivo Black\';	white-space: nowrap;	letter-spacing: -2px;	margin: 0px;">' + $this.settings.textNutritionFacts + '</div>\n';
+			//	nutritionLabel += tab1 + '<div class="title">' + $this.settings.textNutritionFacts + '</div>\n';
 
 
 		if ($this.settings.showItemName){
@@ -1321,6 +1481,375 @@
 					nutritionLabel += tab2 + $this.settings.textIron + '\n';
 				nutritionLabel += tab1 + '</div>\n';
 			}
+
+			if ($this.settings.showPhosphorous){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naPhosphorous ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valuePhosphorous) :
+								parseFloat( $this.settings.valuePhosphorous.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitPhosphorous;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textPhosphorous + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showRibflavin){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naRibflavin ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueRibflavin) :
+								parseFloat( $this.settings.valueRibflavin.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitRibflavin;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textRibflavin + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showBiotin){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naBiotin ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueBiotin) :
+								parseFloat( $this.settings.valueBiotin.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitBiotin;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textBiotin + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showChloride){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naChloride ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueChloride) :
+								parseFloat( $this.settings.valueChloride.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitChloride;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textChloride + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showChromium){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naChromium ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueChromium) :
+								parseFloat( $this.settings.valueChromium.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitChromium;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textChromium + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showCopper){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naCopper ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueCopper) :
+								parseFloat( $this.settings.valueCopper.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitCopper;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textCopper + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showFolic){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naFolic ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueFolic) :
+								parseFloat( $this.settings.valueFolic.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitFolic;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textFolic + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showIodine){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naIodine ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueIodine) :
+								parseFloat( $this.settings.valueIodine.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitIodine;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textIodine + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showMagnesium){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naMagnesium ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueMagnesium) :
+								parseFloat( $this.settings.valueMagnesium.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitMagnesium;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textMagnesium + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showManganese){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naManganese ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueManganese) :
+								parseFloat( $this.settings.valueManganese.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitManganese;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textManganese + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showMolybdenum){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naMolybdenum ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueMolybdenum) :
+								parseFloat( $this.settings.valueMolybdenum.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitMolybdenum;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textMolybdenum + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showNiacine){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naNiacine ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueNiacine) :
+								parseFloat( $this.settings.valueNiacine.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitNiacine;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textNiacine + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showOmega){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naOmega ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueOmega) :
+								parseFloat( $this.settings.valueOmega.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitOmega;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textOmega + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showPantothenic){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naPantothenic ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valuePantothenic) :
+								parseFloat( $this.settings.valuePantothenic.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitPantothenic;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textPantothenic + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showSelenium){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naSelenium ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueSelenium) :
+								parseFloat( $this.settings.valueSelenium.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitSelenium;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textSelenium + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showSource){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naSource ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueSource) :
+								parseFloat( $this.settings.valueSource.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitSource;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textSource + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showThiamine){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naThiamine ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueThiamine) :
+								parseFloat( $this.settings.valueThiamine.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitThiamine;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textThiamine + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showVitaminB12){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naVitaminB12 ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueVitaminB12) :
+								parseFloat( $this.settings.valueVitaminB12.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitVitaminB12;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textVitaminB12 + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showVitaminB6){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naVitaminB6 ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueVitaminB6) :
+								parseFloat( $this.settings.valueVitaminB6.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitVitaminB6;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textVitaminB6 + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showVitaminD){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naVitaminD ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueVitaminD) :
+								parseFloat( $this.settings.valueVitaminD.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitVitaminD;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textVitaminD + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showVitaminE){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naVitaminE ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueVitaminE) :
+								parseFloat( $this.settings.valueVitaminE.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitVitaminE;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textVitaminE + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showVitaminK){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naVitaminK ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueVitaminK) :
+								parseFloat( $this.settings.valueVitaminK.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitVitaminK;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textVitaminK + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+			if ($this.settings.showZinc){
+				nutritionLabel += tab1 + '<div class="line iron">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naZinc ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueZinc) :
+								parseFloat( $this.settings.valueZinc.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitZinc;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textZinc + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
 
 
 				nutritionLabel += tab1 + '<div class="dvCalorieDiet line">\n';

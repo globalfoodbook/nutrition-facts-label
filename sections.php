@@ -12,7 +12,7 @@
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='get' action='#'>
      <h4>Ingredients:</h4>
-     <p><textarea id='gfb-nutrition-label-textarea' name='ingredients' rows='12' cols='33' placeholder='1 cup rice&#x0a;1 cup beans&#x0a;1 teaspoon honey&#x0a;50g spinach' <?php echo $readonly?>><?php echo $ingredients; ?></textarea>
+     <p><textarea id='gfb-nutrition-label-textarea' name='ingredients' rows='12' cols='22' placeholder='broccoli&#x0a;black pepper&#x0a;salt&#x0a;honey&#x0a;spinach' <?php echo $readonly?> style="resize: none;"><?php echo $ingredients; ?></textarea>
      <input id="gfb-nutrition-label-url" name="url" type="hidden" value="<?php echo C_URL ?>" />
      <input id="gfb-nutrition-label-post-id" name='post_id' type="hidden" value="<?php echo $post->ID ?>" />
      </p>
@@ -24,6 +24,7 @@
    <p><div id="nutrition-label-outer">
      <div id="nutrition-label"> </div>
    </div></p>
+   <p id="gfb-nutrition-label-msg" style="font-weight: bold;">THE NUTRITION FACTS HERE ARE INDICATIVE.</p>
    <p><a id="gfb-nutrition-label-button" onclick="gfbnutritionlabel.generateImage()" style="display:inline; width: 70px; background: #4E9CAF; padding: 10px; text-align: center; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Download</a></p>
 </div>
 <?php require_once 'admin_front_end.php';

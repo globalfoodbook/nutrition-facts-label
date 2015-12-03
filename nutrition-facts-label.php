@@ -100,6 +100,7 @@ function embed_nutrition_label_sc(){
           $nutrition = get_post_meta($post->ID, META_KEY)[0];
         ?>
     	</div>
+      <p id="gfb-nutrition-label-msg" style="font-weight: bold;">THE NUTRITION FACTS HERE ARE INDICATIVE.</p>
     </div>
 <?php
   require_once 'front_end.php';

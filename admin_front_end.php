@@ -16,6 +16,7 @@ jQuery( document ).ready(function() {
 
     try {
       jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, JSON.parse(response)));
+      jQuery('#gfb-nutrition-label-msg').show();
     } catch(error) {
       console.log(error);
     }
@@ -25,15 +26,18 @@ jQuery( document ).ready(function() {
     if (response.length > 0){
       try {
         jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, JSON.parse(response)));
+        jQuery('#gfb-nutrition-label-msg').show();
       } catch(error) {
         console.log(error);
       }
     } else {
-      jQuery('#nutrition-label').nutritionLabel()
+      jQuery('#nutrition-label').nutritionLabel();
+      jQuery('#gfb-nutrition-label-msg').hide();
     }
 
   <?php } else { ?>
     jQuery('#nutrition-label').nutritionLabel()
+    jQuery('#gfb-nutrition-label-msg').hide();
   <?php } ?>
 });
 </script>

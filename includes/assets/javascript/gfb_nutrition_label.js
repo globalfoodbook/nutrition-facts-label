@@ -60,6 +60,7 @@ GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
           response = JSON.parse(xmlhttp.responseText);
           if(typeof response.Errors === 'undefined') {
             jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, response));
+            jQuery('#gfb-nutrition-label-msg').show();
           } else {
             _this.notify(errorMsg);
           }

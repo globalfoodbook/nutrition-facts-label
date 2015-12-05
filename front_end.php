@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (response.length > 0){
       try {
         jQuery('#nutrition-label').nutritionLabel(jQuery.extend( settings, JSON.parse(response)));
+        jQuery('#gfb-nutrition-label-msg').show();
       } catch(error) {
         console.log(error);
       }

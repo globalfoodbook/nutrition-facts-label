@@ -31,11 +31,13 @@ jQuery( document ).ready(function() {
         console.log(error);
       }
     } else {
-      jQuery('#nutrition-label').nutritionLabel()
+      jQuery('#nutrition-label').nutritionLabel();
+      jQuery('#gfb-nutrition-label-msg').hide();
     }
 
   <?php } else { ?>
     jQuery('#nutrition-label').nutritionLabel()
+    jQuery('#gfb-nutrition-label-msg').hide();
   <?php } ?>
 });
 </script>

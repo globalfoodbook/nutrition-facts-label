@@ -10,13 +10,11 @@ jQuery( document ).ready(function() {
     if (response.length > 0){
       gfbnutritionlabel.setup(response, <?php echo json_encode(options($ingredients)); ?>, <?php echo (empty($serving) ? 1 : $serving)?>)
     } else {
-      jQuery('#nutrition-label').nutritionLabel();
-      jQuery('#gfb-nutrition-label-msg').hide();
+      gfbnutritionlabel.basic();
     }
 
   <?php } else { ?>
-    jQuery('#nutrition-label').nutritionLabel()
-    jQuery('#gfb-nutrition-label-msg').hide();
+    gfbnutritionlabel.basic();
   <?php } ?>
 });
 </script>

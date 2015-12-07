@@ -121,6 +121,11 @@ GFBNutritionLabel.prototype.format = function(ingredients) {
   return ingredients.split("\n").join(",").replace(/\s\s+/g, " ").trim();
 }
 
+GFBNutritionLabel.prototype.basic = function() {
+  jQuery('#nutrition-label').nutritionLabel();
+  jQuery('#gfb-nutrition-label-msg').hide();
+}
+
 GFBNutritionLabel.prototype.setup = function(response, ingredients, serving) {
   var settings = {
   	"showServingUnitQuantity":true,

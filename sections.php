@@ -3,9 +3,15 @@
   if(!empty($post) && $post->post_type == 'recipe') {
     $message = "<b>NB:</b> <i>The ingredients here are listed in a readonly text-box. They are sourced from the ingredient list in the recipe information section. Before generating this label make sure you have at least one ingredient and have saved or updated this recipe first before generating this nutrition label.</i>";
     $readonly = 'readonly';
-    $ingredients = implode(PHP_EOL,get_post_meta($post->ID, 'RECIPE_META_ingredients')[0]);
+    if(!empty($post->ID)){
+      $post_meta = get_post_meta($post->ID, 'RECIPE_META_ingredients');
+      if(empty($post_meta)){
+        $ingredients = '';
+      } else {
+        $ingredients = implode(PHP_EOL, $post_meta[0]);
+      }
+    }
   }
-
   echo $message;
 ?>
 <div>

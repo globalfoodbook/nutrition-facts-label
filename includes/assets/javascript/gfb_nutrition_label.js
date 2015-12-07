@@ -1,5 +1,6 @@
 var GFBNutritionLabel = function(){};
 
+GFBNutritionLabel.prototype.errorMsg = "An error has occured. Please verify that you ingredient(s) are correctly entered line by line.";
 GFBNutritionLabel.prototype.generateImage = function(){
   var node = [document.getElementById('nutrition-label')],
   servingSizeField = document.getElementById("n-label-servingsizefield")
@@ -31,7 +32,6 @@ GFBNutritionLabel.prototype.generateImage = function(){
 GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
   var path = url+"?action=nutrition_request&ingredients="+ingredients+"&post_id="+post_id,
   loader = document.getElementById("gfb-nutrition-label-loader"),
-  errorMsg = "An error has occured. Please verify that you ingredient(s) are correctly entered line by line.",
   _this = this,
   xmlhttp,
   response
@@ -49,7 +49,7 @@ GFBNutritionLabel.prototype.get = function(ingredients, post_id, url){
       if(xmlhttp.status == 200) {
         _this.setup(xmlhttp.responseText);
       } else {
-        _this.notify(errorMsg);
+        _this.notify(_this.errorMsg);
       }
       loader.style.display = "none";
     }
@@ -144,10 +144,10 @@ GFBNutritionLabel.prototype.setup = function(response, ingredients, serving) {
       jQuery('#nutrition-label').nutritionLabel(jQuery.extend(settings, response));
       jQuery('#gfb-nutrition-label-msg').show();
     } else {
-      this.notify(errorMsg);
+      this.notify(this.errorMsg);
     }
   } catch(error) {
-    this.notify(errorMsg + "\n" + error);
+    this.notify(this.errorMsg + "\n" + error);
   }
 }
 

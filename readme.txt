@@ -101,11 +101,19 @@ Then press the "Go" button.
 
 = 1.0 =
 * Initial Release
+ 
+= 1.1 =
+* Fixes and Modifications
+* Documentation
 
 == Upgrade Notice ==
 
-= 1 =
+= 1.0 =
 * Initial Release
+ 
+= 1.1 =
+* Fixes and Modifications
+* Documentation
 
 == Notes to developers ==
 

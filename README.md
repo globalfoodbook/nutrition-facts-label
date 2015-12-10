@@ -107,6 +107,10 @@ Then press the "Go" button.
 
 ### 1
 * Initial Release
+ 
+### 1.1
+* Fixes and Modifications
+* Documentation
 
 ## Notes to developers
 

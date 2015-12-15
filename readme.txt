@@ -2,7 +2,7 @@
 Contributors: (kengimel)
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
 Requires at least: 3.0.1
-Tested up to: 4.2.2
+Tested up to: 4.4
 Stable tag: 1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -102,10 +102,24 @@ Then press the "Go" button.
 = 1.0 =
 * Initial Release
 
+= 1.1 =
+* Fixes and Modifications
+* Documentation
+
+= 1.2 =
+* Bump wordpress compatibile versions
+
 == Upgrade Notice ==
 
-= 1 =
+= 1.0 =
 * Initial Release
+
+= 1.1 =
+* Fixes and Modifications
+* Documentation
+
+= 1.2 =
+* Bump wordpress compatibile versions
 
 == Notes to developers ==
 

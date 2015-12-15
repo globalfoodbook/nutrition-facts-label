@@ -103,6 +103,9 @@ Then press the "Go" button.
 * Fixes and Modifications
 * Documentation
 
+### 1.2
+* Bump wordpress compatibile versions
+
 ## Upgrade Notice
 
 ### 1
@@ -111,6 +114,9 @@ Then press the "Go" button.
 ### 1.1
 * Fixes and Modifications
 * Documentation
+
+### 1.2
+* Bump wordpress compatibile versions
 
 ## Notes to developers
 

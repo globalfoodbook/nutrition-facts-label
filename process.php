@@ -1,6 +1,6 @@
 <?php
 /*
-* If you have setup your own private Nutrition API server then you can set up an environment variable
+* If you have setup your own private Nutrition API server then you should setup an environment variable
 * Example based on centos:
 * OPEN
 * vim /etc/php-fpm.conf

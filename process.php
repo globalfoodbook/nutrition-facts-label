@@ -3,12 +3,12 @@
 If you have setup your own private Nutrition API server then you can set up an environment variable
 Example:
 In system profiles files like ~/.bashrc ~/.profile or /etc/environment etc
-export NUT_API = 'http://<ip or domain>/path'
+export NUT_API = 'http://<ip or domain>/v1/nutrition/facts?ingredients='
 
 or
 
 In /etc/php-fpm.conf
-env[NUT_API] = 'http://<ip or domain>/path'
+env[NUT_API] = 'http://<ip or domain>/v1/nutrition/facts?ingredients='
 
 This would be use by default else it would fallback to publie nutrion api.
 

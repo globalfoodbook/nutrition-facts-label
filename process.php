@@ -25,7 +25,7 @@ if(isset($_ENV["NUT_API"])) {
   define(NUT_API, "http://nuts.globalfoodbook.net/v1/nutrition/facts?ingredients=");
 }
 define(C_URL, admin_url('admin-ajax.php'));
-define(META_KEY, "gfb_recipe_meta_nutrition_facts");
+define(META_KEY, 'gfb_recipe_meta_nutrition_facts');
 ini_set('default_socket_timeout', 900); // increase default_socket_timeout
 
 add_action( 'wp_ajax_nutrition_request', 'nutrition_request' );

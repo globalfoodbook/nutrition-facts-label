@@ -109,6 +109,9 @@ Then press the "Go" button.
 = 1.2 =
 * Bump wordpress compatibile versions
 
+= 1.5 =
+* Add configrable NUT_API environment variable
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -120,6 +123,9 @@ Then press the "Go" button.
 
 = 1.2 =
 * Bump wordpress compatibile versions
+
+= 1.5 =
+* Add configrable NUT_API environment variable
 
 == Notes to developers ==
 

@@ -1,55 +1,22 @@
 <?php
 /*
-If you have setup your own private Nutrition API server then you can set up an environment variable
-Example:
-In system profiles files like ~/.bashrc ~/.profile or /etc/environment etc
-export NUT_API = 'http://<ip or domain>/v1/nutrition/facts?ingredients='
-
-or
-
-In /etc/php-fpm.conf
-env[NUT_API] = 'http://<ip or domain>/v1/nutrition/facts?ingredients='
-
-This would be use by default else it would fallback to publie nutrion api.
-
-HOW TO ADD ENVIRONMENT VARIABLES:
-OPEN
-/etc/php.ini
-FIND
-variables_order = "GPCS"
-REPLACE TO
-variables_order = "EGPCS"
-# http://php.net/manual/ru/ini.core.php#ini.variables-order
-OPEN
-/etc/php-fpm.d/www.conf (maybe /etc/php5/fpm/pool.d/www.conf)
-(do not confuse with /etc/php-fpm.conf)
-FIND IF EXIST
-clear_env = yes
-REPLACE TO OR ADD
-clear_env = no
-# http://php.net/manual/en/install.fpm.configuration.php
-OPEN
-/etc/environment
-ADD
-#any variables you need, for example:
-MY_VAR=1234
-RUN IN SHELL FOR CHECK
-source /etc/environment
-echo $MY_VAR # 1234
-RUN IN SHELL
-ln -fs /etc/environment /etc/sysconfig/php-fpm
-systemctl daemon-reload && service php-fpm restart
-TESTING THE ENVIRONMENT VARIABLE
-OPEN
-index.php # in your project folder, running with php-fpm
-ADD
-var_dump(getenv('MY_VAR'), $_ENV['MY_VAR']);exit;
-RUN IN BROWSER
-http://mylink.to.project/index.php
-string(4) "1234"
-string(4) "1234"
-ENJOY!
-SEE THIS FOR MORE: http://stackoverflow.com/questions/30822695/how-to-get-php-to-be-able-to-read-system-environment-variables
+* If you have setup your own private Nutrition API server then you can set up an environment variable
+* Example based on centos:
+* OPEN
+* vim /etc/php-fpm.conf
+* ADD TO /etc/php-fpm.conf
+* env[NUT_API] = 'http://<ip or domain>/v1/nutrition/facts?ingredients='
+* This would be use by default else it will use the public nutrition label api.
+* HOW TO ADD ENVIRONMENT VARIABLES:
+* OPEN
+* vim /etc/php.ini
+* FIND
+* variables_order = "GPCS"
+* REPLACE TO
+* variables_order = "EGPCS"
+* Restart php-fpm
+* SEE THIS URL FOR MORE INFO:
+* http://stackoverflow.com/questions/30822695/how-to-get-php-to-be-able-to-read-system-environment-variables
 */
 
 if(isset($_ENV["NUT_API"])) {

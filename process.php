@@ -58,7 +58,7 @@ if(isset($_ENV["NUT_API"])) {
   define("NUT_API", "http://nuts.globalfoodbook.net/v1/nutrition/facts?ingredients=");
 }
 
-echo "NUT_API: ".NUT_API;
+// echo "NUT_API: ".NUT_API;
 
 define(C_URL, admin_url('admin-ajax.php'));
 define(META_KEY, "gfb_recipe_meta_nutrition_facts");

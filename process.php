@@ -3,12 +3,12 @@
 If you have setup your own private Nutrition API server then you can set up an environment variable
 Example:
 In system profiles files like ~/.bashrc ~/.profile or /etc/environment etc
-export NUT_API = 'http://<ip or domain>'
+export NUT_API = 'http://<ip or domain>/path'
 
 or
 
 In /etc/php-fpm.conf
-env[NUT_API] = 'http://<ip or domain>'
+env[NUT_API] = 'http://<ip or domain>/path'
 
 This would be use by default else it would fallback to publie nutrion api.
 
@@ -53,10 +53,12 @@ SEE THIS FOR MORE: http://stackoverflow.com/questions/30822695/how-to-get-php-to
 */
 
 if(isset($_ENV["NUT_API"])) {
-  define("NUT_API", $_ENV["NUT_API"]."/v1/nutrition/facts?ingredients=");
+  define("NUT_API", $_ENV["NUT_API"]);
 } else {
   define("NUT_API", "http://nuts.globalfoodbook.net/v1/nutrition/facts?ingredients=");
 }
+
+echo "NUT_API: ".NUT_API;
 
 define(C_URL, admin_url('admin-ajax.php'));
 define(META_KEY, "gfb_recipe_meta_nutrition_facts");

@@ -1936,7 +1936,7 @@
 			if ($this.settings.showCustomFooter)
 				nutritionLabel += tab1 + '<div class="customFooter">' + $this.settings.valueCustomFooter + '</div>\n';
 
-			nutritionLabel += '</div><!-- closing class="nutritionLabel" -->\n';
+			nutritionLabel += '<div><p>THE NUTRITION FACTS HERE ARE INDICATIVE</p></div></div><!-- closing class="nutritionLabel" -->\n';
 
 			nutritionLabel += '<div class="naTooltip">Data not available</div>\n';
 

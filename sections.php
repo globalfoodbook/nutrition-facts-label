@@ -1,8 +1,8 @@
 <?php
   global $post;
   if(!empty($post) && $post->post_type == 'recipe') {
-    $message = "<b>NB:</b> <i>The ingredients here are listed in a readonly text-box. They are sourced from the ingredient list in the recipe information section. Before generating this label make sure you have at least one ingredient and have saved or updated this recipe first before generating this nutrition label.</i>";
-    $readonly = 'readonly';
+    $message = "<b>NB:</b> <i>The ingredients here are listed in a text-box. They are sourced from the ingredient list in the recipe information section. Before generating this label make sure you have at least one ingredient and have saved or updated this recipe first before generating this nutrition label.</i>";
+
     if(!empty($post->ID)){
       $post_meta = get_post_meta($post->ID, 'RECIPE_META_ingredients');
       if(empty($post_meta)){
@@ -18,7 +18,7 @@
 <div class='section1'>
   <form name="gfb-nutrition-label-form" method='get' action='#'>
      <h4>Ingredients:</h4>
-     <p><textarea id='gfb-nutrition-label-textarea' name='ingredients' rows='12' cols='22' placeholder='broccoli&#x0a;black pepper&#x0a;salt&#x0a;honey&#x0a;spinach' <?php echo $readonly?> style="resize: none;"><?php echo $ingredients; ?></textarea>
+     <p><textarea id='gfb-nutrition-label-textarea' name='ingredients' rows='12' cols='22' placeholder='broccoli&#x0a;black pepper&#x0a;salt&#x0a;honey&#x0a;spinach' style="resize: none;"><?php echo $ingredients; ?></textarea>
      <input id="gfb-nutrition-label-url" name="url" type="hidden" value="<?php echo C_URL ?>" />
      <input id="gfb-nutrition-label-post-id" name='post_id' type="hidden" value="<?php echo $post->ID ?>" />
      </p>

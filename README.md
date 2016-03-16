@@ -1,10 +1,16 @@
 # Nutrition Facts Label
 Contributors: ([Ikenna N. Okpala](https://github.com/ikennaokpala))
+
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
+
 Requires at least: 3.0.1
+
 Tested up to: 4.4
+
 Stable tag: 1
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides food bloggers with the ability to add nutrition facts label to their recipe post(s).

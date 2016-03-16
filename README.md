@@ -1,5 +1,5 @@
 # Nutrition Facts Label
-Contributors: (kengimel)
+Contributors: ([Ikenna N. Okpala](https://github.com/ikennaokpala))
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
 Requires at least: 3.0.1
 Tested up to: 4.4

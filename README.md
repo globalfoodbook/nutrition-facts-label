@@ -1,4 +1,5 @@
 # Nutrition Facts Label
+
 Contributors: ([Ikenna N. Okpala](https://github.com/ikennaokpala))
 
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
@@ -60,7 +61,7 @@ At the moment we are working on improving our algorithms on the backend and woul
 
 We would love to hear from you on ways this can be improved, give us a shout via the our website or via email (we [at] globalfoodbook.com).
 
-Thanks  
+Thanks and Keep pushing
 
 ### How to Use this Nutrition Label?
 Login into your Wordpress account.

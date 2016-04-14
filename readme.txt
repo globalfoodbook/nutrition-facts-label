@@ -35,9 +35,11 @@ It is also possible to embed this as a short-code from the text editor.
 
 But based on the food-cook recipe page layout your options may appear limited, hence why it is best that a Wordpress developer helps out here.
 
-<pre><code>
+<pre>
+  <code>
   [embed_nutrition_label]
-</code></pre>
+  </code>
+</pre>
 
 = How to Video =
 

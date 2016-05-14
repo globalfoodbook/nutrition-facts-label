@@ -1,7 +1,5 @@
 # Nutrition Facts Label
 
-Contributors: ([Ikenna N. Okpala](https://github.com/ikennaokpala))
-
 Tags: food, nutrition, nutrition facts, nutrition label, food-cook, recipe plugin, shortcode, global food book
 
 Requires at least: 3.0.1
@@ -177,3 +175,8 @@ If you would like to contribute to our suite of plugins, head on over to [Global
           `git rebase svn`
           `git branch -d svn`
           `git svn dcommit --username [Wordpress.org username]`
+
+
+# Contributors
+
+* [Ikenna N. Okpala](http://ikennaokpala.com)

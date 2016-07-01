@@ -14,7 +14,7 @@
     display: inline-block !important;
     overflow: hidden;
   }
-  p{
+  .gfb-nutrition-label-section p{
     font-weight: bold;
     margin-left: 12px;
   }
